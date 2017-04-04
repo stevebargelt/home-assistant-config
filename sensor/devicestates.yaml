@@ -1,0 +1,14 @@
+- platform: template
+  sensors:
+      amazon_echo:
+        friendly_name: 'Amazon Echo'
+        value_template: "{{ 'Online' if is_state('device_tracker.amazon_echo', 'home') else 'Offline' }}"
+      amazon_dot:
+        friendly_name: 'Amazon Dot'
+        value_template: "{{ 'Online' if is_state('device_tracker.amazon_dot', 'home') else 'Offline' }}"
+      xbox_one:
+        friendly_name: 'Xbox One'
+        value_template: "{{ 'Online' if is_state('device_tracker.xbox_one', 'home') else 'Offline' }}"    
+      withings_scale:
+        friendly_name: 'Withings Scale'
+        value_template: "{{ 'Online' if is_state('device_tracker.withings_scale', 'home') else 'Offline' }}"    

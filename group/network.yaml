@@ -1,0 +1,12 @@
+Network:
+  entities:
+#    - sensor.ha_installed_version
+#    - sensor.ha_last_restart
+#    - sensor.since_last_boot_templated
+    - sensor.disk_use_
+#    - sensor.speedtest_download
+#    - sensor.speedtest_upload
+    - sensor.xbon_one
+    - sensor.amazon_echo
+    - sensor.amazon_dot_master_bath
+    - sensor.withings_scale
