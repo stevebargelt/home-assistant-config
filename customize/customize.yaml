@@ -7,4 +7,8 @@ device_tracker.amazon_dot_master_bath:
   friendly_name: 'Amazon Dot Master Bath'
   emulated_hue: False
   hidden: True
-  
+
+device_tracker.iphone:
+  friendly_name: "Steve iPhone'"
+  emulated_hue: False
+  hidden: False
