@@ -22,3 +22,13 @@ device_tracker.withings_scale:
   friendly_name: "Withings Scale"
   emulated_hue: False
   hidden: True
+
+device_tracker.xbox_one:
+  friendly_name: "Xbox One"
+  emulated_hue: False
+  hidden: True
+
+device_tracker.macbookpro:
+  friendly_name: "Steve's Macbook Pro"
+  emulated_hue: False
+  hidden: True
