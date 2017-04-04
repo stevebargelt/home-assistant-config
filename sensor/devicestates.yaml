@@ -5,7 +5,7 @@
         value_template: "{{ 'Online' if is_state('device_tracker.amazon_echo', 'home') else 'Offline' }}"
       amazon_dot:
         friendly_name: 'Amazon Dot'
-        value_template: "{{ 'Online' if is_state('device_tracker.amazon_dot', 'home') else 'Offline' }}"
+        value_template: "{{ 'Online' if is_state('device_tracker.amazon_dot_master_bath', 'home') else 'Offline' }}"
       xbox_one:
         friendly_name: 'Xbox One'
         value_template: "{{ 'Online' if is_state('device_tracker.xbox_one', 'home') else 'Offline' }}"    

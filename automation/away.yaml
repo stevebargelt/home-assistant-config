@@ -1,0 +1,20 @@
+- alias: 'Away Mode'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.away_mode
+      to: 'on'
+    - platform: state
+      entity_id: group.family
+      state: 'not_home'
+
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: 'not_home'
+    # - condition: state
+    #   entity_id: input_boolean.guest_mode
+    #   state: 'off'
+
+  action:
+    - service: light.turn_off
+    - service: switch.turn_off

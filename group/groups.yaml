@@ -1,19 +1,3 @@
-master_bedroom:
-  name: MasterBedroom
-  entities:
-    - switch.steve_lamp_switch_4_0
-office:
-  name: Office
-  entities:
-    - switch.office_lamp_switch_3_0
-kitchen:
-  name: Kitchen
-  entities:
-    - light.act_zdp100_plugin_lamp_module_level_8_0
-livingroom:
-  name: Living Room
-  entities: 
-    - switch.living_room_lamp
 Family:
   entities:
     - device_tracker.iphone

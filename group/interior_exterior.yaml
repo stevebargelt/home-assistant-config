@@ -1,0 +1,7 @@
+Interior_Lights:
+  entities:
+    - group.Master_Bedroom_Lights
+    - group.Living_Room_Lights
+    - group.Dining_Room_Lights
+    - group.Kitchen_Lights
+    - group.Office_Lights
