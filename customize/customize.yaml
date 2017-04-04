@@ -1,3 +1,7 @@
+#######################################################
+#####      Device Tracker                         #####
+#######################################################
+
 device_tracker.amazon_echo:
   friendly_name: 'Amazon Echo'
   emulated_hue: False
@@ -32,3 +36,37 @@ device_tracker.macbookpro:
   friendly_name: "Steve's Macbook Pro"
   emulated_hue: False
   hidden: True
+
+#######################################################
+#####      Switches                               #####
+#######################################################
+
+zwave.act_zdp100_plugin_lamp_module_8:
+  friendly_name: "Kitchen Switch"
+  emulated_hue: True
+  hidden: False
+  icon: mdi:power-plug
+
+#######################################################
+#####      Sensors                                #####
+#######################################################
+
+zwave.homeseer_hsm100_wireless_multisensor_7:
+  friendly_name: "Entry Multisensor"
+  emulated_hue: False
+  hidden: True
+
+sensor.homeseer_hsm100_wireless_multisensor_general_7_2:
+  friendly_name: "Entry Sensor General"
+  emulated_hue: False
+  hidden: False
+  
+sensor.homeseer_hsm100_wireless_multisensor_luminance_7_3_2:
+  friendly_name: "Entry Luminance"
+  emulated_hue: False
+  hidden: False
+  
+sensor.homeseer_hsm100_wireless_multisensor_temperature_7_1_3:
+  friendly_name: "Entry Temp"
+  emulated_hue: False
+  hidden: False
