@@ -9,6 +9,16 @@ device_tracker.amazon_dot_master_bath:
   hidden: True
 
 device_tracker.iphone:
-  friendly_name: "Steve iPhone'"
+  friendly_name: "Steve iPhone"
   emulated_hue: False
-  hidden: False
+  hidden: True
+
+device_tracker.routerasuscom:
+  friendly_name: "ASUS Router"
+  emulated_hue: False
+  hidden: True
+
+device_tracker.withings_scale:
+  friendly_name: "Withings Scale"
+  emulated_hue: False
+  hidden: True
