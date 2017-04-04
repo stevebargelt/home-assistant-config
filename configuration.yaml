@@ -7,24 +7,23 @@ homeassistant:
   time_zone: America/Chicago
   customize: !include_dir_merge_named customize
 
-frontend:
-
 http:
   api_password: !secret api_password
   ssl_certificate: !secret my_ssl_certificate
   ssl_key: !secret my_ssl_key
   login_attempts_threshold: 3
 
-# Checks for available updates
+frontend:
+config:
 updater:
 discovery:
+
 sun:
 wemo:
   static:
     - 192.168.1.215
 
 history:
-
 logbook:
 
 sensor: !include_dir_merge_list sensor
