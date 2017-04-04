@@ -1,0 +1,10 @@
+device_tracker.amazon_echo:
+  friendly_name: 'Amazon Echo'
+  emulated_hue: False
+  hidden: True
+
+device_tracker.amazon_dot_master_bath:
+  friendly_name: 'Amazon Dot Master Bath'
+  emulated_hue: False
+  hidden: True
+  
