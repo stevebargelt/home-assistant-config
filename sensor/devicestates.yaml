@@ -3,8 +3,8 @@
       amazon_echo:
         friendly_name: 'Amazon Echo'
         value_template: "{{ 'Online' if is_state('device_tracker.amazon_echo', 'home') else 'Offline' }}"
-      amazon_dot:
-        friendly_name: 'Amazon Dot'
+      amazon_dot_master_bath:
+        friendly_name: 'Amazon Dot Master Bath'
         value_template: "{{ 'Online' if is_state('device_tracker.amazon_dot_master_bath', 'home') else 'Offline' }}"
       xbox_one:
         friendly_name: 'Xbox One'
