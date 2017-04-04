@@ -1,0 +1,20 @@
+- platform: darksky
+  api_key: !secret darksky_key
+  monitored_conditions:
+#    - summary
+    - precip_type
+    - precip_intensity
+    - precip_intensity_max
+    - temperature
+#    - dew_point
+    - wind_speed
+#    - wind_bearing
+    - cloud_cover
+    - humidity
+#    - nearest_storm_distance
+    - minutely_summary
+#    - pressure
+#    - visibility
+#    - ozone
+
+- platform: moon

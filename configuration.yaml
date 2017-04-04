@@ -26,9 +26,7 @@ history:
 
 logbook:
 
-# Weather Prediction
-sensor:
-  platform: yr
+sensor: !include_dir_merge_list sensor
 
 # Text to speech
 tts:
@@ -39,6 +37,9 @@ zwave:
 
 emulated_hue:
 
+ifttt:
+  key: !secret ifttt_key
+  
 device_tracker:
   - platform: asuswrt
     host: 192.168.1.1
