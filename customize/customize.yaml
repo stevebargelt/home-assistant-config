@@ -51,22 +51,22 @@ zwave.act_zdp100_plugin_lamp_module_8:
 #####      Sensors                                #####
 #######################################################
 
-zwave.homeseer_hsm100_wireless_multisensor_7:
+zwave.__9:
   friendly_name: "Entry Multisensor"
   emulated_hue: False
   hidden: True
 
-sensor.homeseer_hsm100_wireless_multisensor_general_7_2:
+sensor.entry_multisenso_general_9_2:
   friendly_name: "Entry Sensor General"
   emulated_hue: False
   hidden: False
   
-sensor.homeseer_hsm100_wireless_multisensor_luminance_7_3_2:
+sensor.entry_multisenso_luminance_9_3_2:
   friendly_name: "Entry Luminance"
   emulated_hue: False
   hidden: False
   
-sensor.homeseer_hsm100_wireless_multisensor_temperature_7_1_3:
+sensor.entry_multisenso_temperature_9_1_3:
   friendly_name: "Entry Temp"
   emulated_hue: False
   hidden: False
