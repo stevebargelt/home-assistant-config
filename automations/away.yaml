@@ -13,10 +13,10 @@
   #     state: 'off'
 
   action:
-    service: light.turn_off
-    service: switch.turn_off
-    service: script.ifttt_notify
-    data_template:
-      value1: 'AWay Mode:'
-      value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
-      value3: "{{ trigger.event.data.to_state.state }}"
+    - service: light.turn_off
+    - service: switch.turn_off
+    - service: script.ifttt_notify
+      data_template:
+        value1: 'AWay Mode:'
+        value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
+        value3: "{{ trigger.event.data.to_state.state }}"
