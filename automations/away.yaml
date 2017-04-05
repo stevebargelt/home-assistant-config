@@ -13,9 +13,7 @@
   #     state: 'off'
 
   action:
-    - service: light.turn_off
-      entity_id: 
-        - group.interior_lights  
+    - service: script.interior_off
     - service: script.ifttt_notify
       data_template:
         value1: 'Away Mode:'
