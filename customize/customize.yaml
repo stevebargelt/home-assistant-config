@@ -81,7 +81,7 @@ group.interior_lights:
   hidden: False
 
 group.master_bedroom_lights:
-  friendly_name: ""
+  friendly_name: "Master Bedroom Lights"
   emulated_hue: True
   hidden: False
 
