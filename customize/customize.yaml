@@ -70,3 +70,46 @@ sensor.entry_multisenso_temperature_9_1_3:
   friendly_name: "Entry Temp"
   emulated_hue: False
   hidden: False
+
+#######################################################
+#####      Groups                                 #####
+#######################################################
+
+group.interior_lights:
+  friendly_name: "Interior Lights"
+  emulated_hue: True
+  hidden: False
+
+group.master_bedroom_lights:
+  friendly_name: ""
+  emulated_hue: True
+  hidden: False
+
+group.kitchen_lights:
+  friendly_name: "Kitchen Lights"
+  emulated_hue: True
+  hidden: False
+
+group.living_room_lights:
+  friendly_name: "Living Room Lights"
+  emulated_hue: True
+  hidden: False
+
+group.office_lights:
+  friendly_name: "Office Lights"
+  emulated_hue: True
+  hidden: False
+
+group.everything:
+  friendly_name: "Everything"
+  emulated_hue: True
+  hidden: False
+
+
+  # friendly_name: ""
+  # emulated_hue: True
+  # hidden: False
+
+  # friendly_name: ""
+  # emulated_hue: True
+  # hidden: False

@@ -3,4 +3,4 @@ interior_off:
     - service: light.turn_off
       entity_id: 
         - group.interior_lights
-    - service: script.switch_turn_off_all 
+    - service: script.switch_turn_off_all

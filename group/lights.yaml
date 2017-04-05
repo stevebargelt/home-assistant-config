@@ -13,6 +13,11 @@ Office Lights:
   entities:
     - switch.office_lamp_switch_3_0
 
+Everything:
+  entities:
+    - group.all_switches
+    - group.all_lights
+
 # Dining Room lights:
 #   entities:
 #     - light.S1

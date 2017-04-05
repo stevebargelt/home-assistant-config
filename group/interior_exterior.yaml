@@ -1,7 +1,10 @@
-Interior_Lights:
+Interior Lights:
   entities:
-    - group.Master_Bedroom_Lights
-    - group.Living_Room_Lights
-    - group.Dining_Room_Lights
-    - group.Kitchen_Lights
-    - group.Office_Lights
+    - group.master_bedroom_lights
+    - group.living_room_lights
+    - group.dining_room_lights
+    - group.kitchen_lights
+    - group.office_lights
+# Exterior Lights:
+#   entities:
+#     - group.porch_lights
