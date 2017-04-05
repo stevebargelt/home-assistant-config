@@ -1,0 +1,29 @@
+Bargelt Home View:
+  name: Bargelt Home
+  view: yes
+  icon: mdi:home
+  entities:
+    - persistent_notification.update_available
+    - group.family
+    - group.Master_Bedroom_Lights
+    - group.Living_Room_Lights
+    - group.Dining_Room_Lights
+    - group.Kitchen_Lights
+    - group.Office_Lights
+
+Info:
+  view: yes
+  icon: mdi:settings
+  entities:
+    - group.family
+    # - group.home_modes
+    - group.network
+    - group.sensors
+    # - group.garage_doors
+    # - sun.sun
+    # - group.media_players
+    - group.weather
+    - group.all_lights
+    - group.all_switches
+    - group.all_automations
+    - group.all_scripts
