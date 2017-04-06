@@ -5,13 +5,13 @@
       state: 'not_home'
       for: '00:10:00'
 
-  # condition:
-  #   - condition: state
-  #     entity_id: group.family
-  #     state: 'not_home'
-  #   - condition: state
-  #     entity_id: input_boolean.guest_mode
-  #     state: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'off'
+    # - condition: state
+    #   entity_id: input_boolean.wfh_mode
+    #   state: 'off'
 
   action:
     - service: script.interior_off

@@ -1,0 +1,7 @@
+Triggers:
+  control: hidden
+  entities:
+    - input_boolean.home_stats
+    - input_boolean.flash
+    - input_boolean.good_morning
+    - input_boolean.good_night

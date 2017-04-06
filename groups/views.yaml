@@ -5,6 +5,7 @@ Bargelt Home View:
   entities:
     - persistent_notification.update_available
     - group.family
+    - group.home_modes
     - group.Master_Bedroom_Lights
     - group.Living_Room_Lights
     - group.Dining_Room_Lights
@@ -16,10 +17,9 @@ Info:
   icon: mdi:settings
   entities:
     - group.family
-    # - group.home_modes
+    - group.home_modes
     - group.network
     - group.sensors
-    # - sun.sun
     - group.weather
     - group.all_lights
     - group.all_switches
