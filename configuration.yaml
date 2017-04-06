@@ -39,16 +39,6 @@ ifttt:
   key: !secret ifttt_key
 
 device_tracker:
-  # - platform: asuswrt
-  #   host: 192.168.1.1
-  #   username: !secret asus_username
-  #   password: !secret asus_password
-  - platform: icloud
-    username: !secret icloud_username
-    password: !secret icloud_password
-    account_name: Steven Randall
-  - platform: nmap_tracker
-    hosts: 192.168.1.1/24
   - platform: locative
 
 sensor: !include_dir_merge_list sensors

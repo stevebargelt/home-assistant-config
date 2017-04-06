@@ -12,11 +12,6 @@ device_tracker.amazon_dot_master_bath:
   emulated_hue: False
   hidden: True
 
-device_tracker.iphone:
-  friendly_name: "Steve iPhone"
-  emulated_hue: False
-  hidden: False
-
 device_tracker.routerasuscom:
   friendly_name: "ASUS Router"
   emulated_hue: False
@@ -36,6 +31,13 @@ device_tracker.macbookpro:
   friendly_name: "Steve's Macbook Pro"
   emulated_hue: False
   hidden: True
+
+#Locative ID:
+#fd6af80ed24743d1905407d69623c012 
+device_tracker.steve:
+  friendly_name: "Steve"
+  emulated_hue: False
+  hidden: False
 
 #######################################################
 #####      Switches                               #####
