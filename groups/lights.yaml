@@ -1,13 +1,19 @@
 Master Bedroom Lights:
   entities:
     - switch.steve_lamp_switch_4_0
+
 Kitchen Lights:
   entities:
-    - light.act_zdp100_plugin_lamp_module_level_8_0
+    - light.kitchen_accent
+    - switch.kitchen_overhead
 
 Living Room Lights:
   entities:
     - switch.living_room_lamp
+
+Dining Room Lights:
+  entities:
+    - switch.dining_room
 
 Office Lights:
   entities:
@@ -18,16 +24,10 @@ Everything:
     - group.all_switches
     - group.all_lights
 
-# Dining Room lights:
-#   entities:
-#     - light.S1
-#     - light.S2
-
 # Hallway Lights:
 #   entities:
-#     - light.kids_hallway
-#     - light.bedroom_hallway
+#     - light.zoe_hallway
 
 # Zoes Room:
 #   entities:
-#     - light.Justin_go
+#     - switch.zoe_room

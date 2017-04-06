@@ -19,9 +19,7 @@ Info:
     # - group.home_modes
     - group.network
     - group.sensors
-    # - group.garage_doors
     # - sun.sun
-    # - group.media_players
     - group.weather
     - group.all_lights
     - group.all_switches

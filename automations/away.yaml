@@ -3,6 +3,7 @@
     - platform: state
       entity_id: group.family
       state: 'not_home'
+      for: '00:10:00'
 
   # condition:
   #   - condition: state
@@ -15,7 +16,6 @@
   action:
     - service: script.interior_off
     - service: script.ifttt_notify
-      data_template:
-        value1: 'Away Mode:'
-        value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
-        value3: "{{ trigger.event.data.to_state.state }}"
+        data_template:
+          value1: 'Away Mode Activated'
+          value2: 'Group Family - has not been home for longer than 10:00 minutes'

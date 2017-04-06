@@ -42,10 +42,12 @@ device_tracker.macbookpro:
 #######################################################
 
 zwave.act_zdp100_plugin_lamp_module_8:
-  friendly_name: "Kitchen Switch"
+  friendly_name: "Kitchen Accent"
   emulated_hue: True
   hidden: False
   icon: mdi:power-plug
+
+switch.steve_lamp_switch_4_0
 
 #######################################################
 #####      Sensors                                #####
@@ -92,6 +94,11 @@ group.kitchen_lights:
 
 group.living_room_lights:
   friendly_name: "Living Room Lights"
+  emulated_hue: True
+  hidden: False
+
+group.dining_room_lights:
+  friendly_name: "Dining Room Lights"
   emulated_hue: True
   hidden: False
 
