@@ -34,7 +34,7 @@ device_tracker.macbookpro:
 
 #Locative ID:
 #fd6af80ed24743d1905407d69623c012 
-device_tracker.steve:
+device_tracker.fd6af80ed24743d1905407d69623c012:
   friendly_name: "Steve"
   emulated_hue: False
   hidden: False
