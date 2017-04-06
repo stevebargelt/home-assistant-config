@@ -16,6 +16,6 @@
   action:
     - service: script.interior_off
     - service: script.ifttt_notify
-        data_template:
-          value1: 'Away Mode Activated'
-          value2: 'Group Family - has not been home for longer than 10:00 minutes'
+      data_template:
+        value1: 'Away Mode Activated'
+        value2: 'Group Family - has not been home for longer than 10:00 minutes'
