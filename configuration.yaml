@@ -21,8 +21,8 @@ discovery:
 sun:
 wemo:
   static:
-    - 192.168.1.215
-
+    - 192.168.1.232
+  
 history:
 logbook:
 
@@ -46,4 +46,3 @@ automation: !include_dir_merge_list automations
 script: !include_dir_merge_named scripts
 input_boolean: !include_dir_merge_named inputbools
 group: !include_dir_merge_named groups
-
