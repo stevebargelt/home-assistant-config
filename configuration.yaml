@@ -55,7 +55,7 @@ mqtt:
   broker: 192.168.1.223
 
 switch:
-  platform:
+  platform: mqtt
   mqtt name: "Water Kettle"
   state_topic: "ha/waterkettle"
   command_topic: "ha/waterkettle"
