@@ -17,6 +17,10 @@
     - download
     - upload
 
+#######################################################
+#####     TESTING AREA BELOW                      #####
+#######################################################
+
 - platform: mqtt
   name: "Steve's Mood"
   state_topic: "home-assistant/steve/mood"
