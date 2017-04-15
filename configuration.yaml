@@ -53,8 +53,3 @@ group: !include_dir_merge_named groups
 
 mqtt:
   broker: 127.0.0.1
-
-sensor:
-  - platform: mqtt
-    name: "Steve's Mood"
-    state_topic: "home-assistant/steve/mood"
