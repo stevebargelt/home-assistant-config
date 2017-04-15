@@ -53,3 +53,14 @@ group: !include_dir_merge_named groups
 
 mqtt:
   broker: 192.168.1.223
+
+switch:
+  platform:
+  mqtt name: "Water Kettle"
+  state_topic: "ha/waterkettle"
+  command_topic: "ha/waterkettle"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic:
+  false retain: true
