@@ -49,6 +49,11 @@ zwave.act_zdp100_plugin_lamp_module_8:
   hidden: False
   icon: mdi:power-plug
 
+switch.mqtt_switch:
+  friendly_name: "Water Kettle"
+  emulated_hue: True
+  hidden: False
+
 #######################################################
 #####      Sensors                                #####
 #######################################################
