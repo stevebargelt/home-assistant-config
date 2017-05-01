@@ -26,10 +26,6 @@ wemo:
 history:
 logbook:
 
-# Text to speech
-tts:
-  platform: google
-
 zwave:
   usb_path: /zwaveusbstick
 
@@ -64,3 +60,10 @@ switch:
   payload_off: "OFF"
   optimistic:
   false retain: true
+
+  tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key_id 
+    aws_secret_access_key: !secret aws_secret_access_key
+    profile_name: !secret aws_profile_name 
+    region_name: 'us-west-1'
