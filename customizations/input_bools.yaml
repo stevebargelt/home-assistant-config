@@ -6,7 +6,7 @@ input_boolean.good_morning:
 
 input_boolean.good_night:
   friendly_name: 'Good Night'
-  emulated_hue: False
+  emulated_hue: True
   hidden: False
   icon: mdi:weather-night
 
