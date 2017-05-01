@@ -52,7 +52,7 @@ mqtt:
 
 switch:
   platform: mqtt
-  mqtt name: "Water Kettle"
+  name: "Water Kettle"
   state_topic: "ha/waterkettle"
   command_topic: "ha/waterkettle"
   qos: 0
