@@ -65,9 +65,6 @@ switch:
   - platform: amazon_polly
     aws_access_key_id: !secret aws_access_key_id 
     aws_secret_access_key: !secret aws_secret_access_key
-    profile_name: !secret aws_profile_name 
+    #profile_name: !secret aws_profile_name 
     region_name: 'us-west-1'
-
-- service: tts.amazon_polly_say
-  data_template:
-    message: '<speak>Hello from Amazon Polly</speak>'
+    voice: 'Salli'

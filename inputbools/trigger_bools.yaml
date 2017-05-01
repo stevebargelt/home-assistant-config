@@ -11,3 +11,10 @@ work:
   name: work
   initial: off
 
+home_stats:
+  name: Home Stats
+  initial: off
+
+lights_status:
+	name: Lights Status
+	initial: off
