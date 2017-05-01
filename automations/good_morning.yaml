@@ -23,3 +23,7 @@
         
     - service: input_boolean.turn_off
       entity_id: input_boolean.good_morning
+    - service: tts.amazon_polly_say
+      data:
+        entity_id: media_player.living_room
+        message: 'Good Morning'

@@ -18,3 +18,7 @@
     - service: script.interior_off
     - service: input_boolean.turn_off
       entity_id: input_boolean.good_night
+    - service: tts.amazon_polly_say
+      data:
+        entity_id: media_player.living_room
+        message: 'Good Night. Sleep tight.'
