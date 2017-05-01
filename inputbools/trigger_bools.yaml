@@ -16,5 +16,5 @@ home_stats:
   initial: off
 
 lights_status:
-	name: Lights Status
-	initial: off
+  name: Lights Status
+  initial: off
