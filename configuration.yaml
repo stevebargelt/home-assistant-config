@@ -12,6 +12,7 @@ http:
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
   login_attempts_threshold: 3
+  base_url: control.bargelt.com
 
 frontend:
 config:
@@ -61,10 +62,9 @@ switch:
   optimistic:
   false retain: true
 
-  tts:
+tts:
   - platform: amazon_polly
     aws_access_key_id: !secret aws_access_key_id 
     aws_secret_access_key: !secret aws_secret_access_key
-    #profile_name: !secret aws_profile_name 
     region_name: 'us-west-1'
     voice: 'Salli'
