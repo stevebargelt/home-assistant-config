@@ -68,3 +68,8 @@ tts:
     aws_secret_access_key: !secret aws_secret_access_key
     region_name: 'us-east-1'
     voice: 'Salli'
+
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
