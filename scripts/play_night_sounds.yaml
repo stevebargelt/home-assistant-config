@@ -1,0 +1,15 @@
+play_night_sounds:
+  sequence:
+    - service: media_player.volume_set
+      entity_id: media_player.spotify
+      data:
+        volume_level: 0.6
+    - service: media_player.select_source
+      entity_id: media_player.spotify
+      data:
+        source: 'Master Bedroom'
+    - service: media_player.play_media
+      entity_id: media_player.spotify
+      data:
+        media_content_id: 'spotify:user:1210493421:playlist:7hAuHjeZO4SgeHEBHilfkV'
+        media_content_type: 'playlist'
