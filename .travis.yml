@@ -3,7 +3,7 @@ python:
   - "3.4"
 install:
   #- pip3 install homeassistant
-  - pip3 install git+git://github.com/home-assistant/home-assistant.git@dev
+  - pip3 install git+git://github.com/home-assistant/home-assistant.git
 script:
   - hass -c . --script check_config
 before_install:
