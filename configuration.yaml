@@ -7,6 +7,13 @@ homeassistant:
   time_zone: America/Chicago
   customize: !include_dir_merge_named customizations
 
+zone:
+  name: home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  radius: 300
+  icon: mdi:home
+
 http:
   api_password: !secret api_password
   ssl_certificate: !secret ssl_certificate
