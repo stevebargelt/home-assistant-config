@@ -22,3 +22,4 @@
       data:
         entity_id: media_player.master_bedroom
         message: 'Good Night. Sleep tight.'
+    - service: script.play_night_sounds
