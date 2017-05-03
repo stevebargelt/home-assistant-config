@@ -35,9 +35,6 @@ emulated_hue:
 ifttt:
   key: !secret ifttt_key
 
-device_tracker:
-  - platform: locative
-
 sensor: !include_dir_merge_list sensors
 automation: !include_dir_merge_list automations
 script: !include_dir_merge_named scripts
@@ -73,3 +70,7 @@ media_player:
   - platform: spotify
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret
+
+device_tracker:
+  - platform: owntracks
+    max_gps_accuracy: 200
