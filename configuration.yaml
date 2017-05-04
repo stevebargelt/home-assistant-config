@@ -82,3 +82,12 @@ media_player:
 device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200
+
+influxdb:
+  host: 192.168.1.223
+  database: homeassistant
+  username: !secret influxdb_username
+  password: !secret influxdb_password
+  tags:
+    instance: prod
+    source: ha
