@@ -11,7 +11,7 @@ zone:
   name: home
   latitude: !secret latitude
   longitude: !secret longitude
-  radius: 300
+  radius: 200
   icon: mdi:home
 
 http:
@@ -38,6 +38,7 @@ zwave:
   usb_path: /zwaveusbstick
 
 emulated_hue:
+  type: alexa
 
 ifttt:
   key: !secret ifttt_key

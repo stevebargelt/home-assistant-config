@@ -1,0 +1,5 @@
+input_boolean:
+  stevehome:
+    name: Steve Home
+    initial: on
+    icon: mdi:cellphone-iphone

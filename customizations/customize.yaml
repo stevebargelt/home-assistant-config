@@ -32,9 +32,7 @@ device_tracker.macbookpro:
   emulated_hue: False
   hidden: True
 
-#Locative ID:
-#fd6af80ed24743d1905407d69623c012 
-device_tracker.fd6af80ed24743d1905407d69623c012:
+device_tracker.owntracksuser_steveiphone:
   friendly_name: "Steve"
   emulated_hue: False
   hidden: False
