@@ -91,3 +91,6 @@ influxdb:
   tags:
     instance: prod
     source: ha
+  
+  ios:
+  
