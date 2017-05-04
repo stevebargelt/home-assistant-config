@@ -92,5 +92,4 @@ influxdb:
     instance: prod
     source: ha
   
-  ios:
-  
+ios:
