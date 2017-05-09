@@ -1,0 +1,49 @@
+dasher:
+  build: dasher
+
+mqtt-ext:
+  image: eclipse-mosquitto
+  ports: 
+    - "8083:8083"
+    - "8883:8883"
+  volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /home/steve/homeassistant/mosquitto-ext.conf:/mosquitto/config/mosquitto.conf
+      - /etc/ssl/certs/DST_Root_CA_X3.pem:/mosquitto/DST_Root_CA_X3.pem
+      - /home/steve/homeassistant/pwfile:/etc/mosquitto/pwfile
+      - /mosquitto/data
+      - /mosquitto/log 
+mqtt-int:
+  image: eclipse-mosquitto
+  ports: 
+    - "1883:1883"
+  volumes:
+      - /home/steve/homeassistant/mosquitto-int.conf:/mosquitto/config/mosquitto.conf
+      - /etc/ssl/certs/DST_Root_CA_X3.pem:/mosquitto/DST_Root_CA_X3.pem
+      - /mosquitto/data 
+      - /mosquitto/log
+
+influxdb:
+  image: influxdb
+  ports:
+    - "8086:8086"
+  volumes:
+    - /home/steve/influxdb:/var/lib/influxdb
+
+grafana:
+  image: grafana/grafana
+  ports:
+    - "3000:3000"
+  volumes: 
+    - /home/steve/grafana:/var/lib/grafana
+
+home-assistant:
+  image: homeassistant/home-assistant
+  volumes:
+    - /etc/letsencrypt:/etc/letsencrypt
+    - /home/steve/homeassistant:/config
+    - /etc/localtime:/etc/localtime:ro
+  devices:
+    - "/dev/ttyUSB0:/zwaveusbstick:rwm"
+  network_mode: "host"
+
