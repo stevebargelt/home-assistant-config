@@ -1,5 +1,5 @@
-dasher:
-  build: dasher
+# dasher:
+#   build: dasher
 
 mqtt-ext:
   image: eclipse-mosquitto
