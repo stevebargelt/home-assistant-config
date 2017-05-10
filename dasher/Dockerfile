@@ -2,10 +2,9 @@ FROM   alpine:latest
 MAINTAINER	Steve Bargelt <steve@bargelt.com>
 
 RUN \
-    sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
     apt-get update && \
     apt-get -y upgrade && \
-     apt-get install -y sudo && \
+    apt-get install -y sudo && \
     apt-get install -y libpcap-dev && \
     apt-get install -y git && \
     apt-get install -y nodejs && \
