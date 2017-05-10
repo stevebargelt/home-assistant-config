@@ -45,5 +45,5 @@ home-assistant:
     - /etc/localtime:/etc/localtime:ro
   devices:
     - "/dev/ttyUSB0:/zwaveusbstick:rwm"
-  network_mode: "host"
+  #network_mode: "host"
 
