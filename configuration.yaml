@@ -67,17 +67,17 @@ switch:
   optimistic:
   false retain: true
 
-# switch2:
-#   platform: mqtt
-#   name: "Kitchen Accent Lights"
-#   state_topic: "ha/kitchenaccent"
-#   command_topic: "ha/kitchenaccent"
-#   qos: 0
-#   payload_on: "ON"
-#   payload_off: "OFF"
-#   optimistic:
-#   false retain: true\
-
+switch2:
+  platform: mqtt
+  name: "Kitchen Accent Lights"
+  state_topic: "ha/kitchenaccent"
+  command_topic: "ha/kitchenaccent"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic:
+  false retain: true\
+  
 tts:
   - platform: amazon_polly
     aws_access_key_id: !secret aws_access_key_id 
