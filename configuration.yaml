@@ -57,26 +57,24 @@ mqtt:
   broker: 192.168.1.223
 
 switch:
-  platform: mqtt
-  name: "Water Kettle"
-  state_topic: "ha/waterkettle"
-  command_topic: "ha/waterkettle"
-  qos: 0
-  payload_on: "ON"
-  payload_off: "OFF"
-  optimistic:
-  false retain: true
-
-switch2:
-  platform: mqtt
-  name: "Kitchen Accent Lights"
-  state_topic: "ha/kitchenaccent"
-  command_topic: "ha/kitchenaccent"
-  qos: 0
-  payload_on: "ON"
-  payload_off: "OFF"
-  optimistic:
-  false retain: true\
+  - platform: mqtt
+    name: "Water Kettle"
+    state_topic: "ha/waterkettle"
+    command_topic: "ha/waterkettle"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic:
+    false retain: true
+  - platform: mqtt
+    name: "Kitchen Accent Lights"
+    state_topic: "ha/kitchenaccent"
+    command_topic: "ha/kitchenaccent"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic:
+    false retain: true\
   
 tts:
   - platform: amazon_polly
@@ -109,7 +107,7 @@ light:
   - platform: mqtt_json
     name: "Kitchen Strip"
     state_topic: "ha/kitchenaccent"
-    command_topic: "bruh/kitchenaccent/set"
+    command_topic: "ha/kitchenaccent/set"
     effect: true
     effect_list:
       - bpm
