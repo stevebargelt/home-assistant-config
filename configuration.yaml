@@ -103,42 +103,42 @@ influxdb:
   
 ios:
 
-light:
-  - platform: mqtt_json
-    name: "Kitchen Strip"
-    state_topic: "ha/kitchenaccent"
-    command_topic: "ha/kitchenaccent/set"
-    effect: true
-    effect_list:
-      - bpm
-      - candy cane  
-      - confetti  
-      - cyclon rainbow  
-      - dots  
-      - fire  
-      - glitter  
-      - juggle  
-      - lightning
-      - noise  
-      - police all  
-      - police one  
-      - rainbow  
-      - rainbow with glitter  
-      - ripple  
-      - sinelon  
-      - solid  
-      - twinkle  
-    brightness: true
-    flash: true
-    rgb: true
-    optimistic: false
-    qos: 0
+# light:
+#   - platform: mqtt_json
+#     name: "Kitchen Strip"
+#     state_topic: "ha/kitchenaccent"
+#     command_topic: "ha/kitchenaccent/set"
+#     effect: true
+#     effect_list:
+#       - bpm
+#       - candy cane  
+#       - confetti  
+#       - cyclon rainbow  
+#       - dots  
+#       - fire  
+#       - glitter  
+#       - juggle  
+#       - lightning
+#       - noise  
+#       - police all  
+#       - police one  
+#       - rainbow  
+#       - rainbow with glitter  
+#       - ripple  
+#       - sinelon  
+#       - solid  
+#       - twinkle  
+#     brightness: true
+#     flash: true
+#     rgb: true
+#     optimistic: false
+#     qos: 0
 
-input_slider:
-  kitchen_animation_speed:
-    name: Kitchen Animation Speed
-    initial: 150
-    min: 1
-    max: 150
-    step: 10
+# input_slider:
+#   kitchen_animation_speed:
+#     name: Kitchen Animation Speed
+#     initial: 150
+#     min: 1
+#     max: 150
+#     step: 10
 
