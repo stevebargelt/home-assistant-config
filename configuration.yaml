@@ -93,3 +93,53 @@ influxdb:
     source: ha
   
 ios:
+
+light:
+  - platform: mqtt_json
+    name: "Kitchen Strip"
+    state_topic: "ha/kitchenaccent"
+    command_topic: "bruh/kitchenaccent/set"
+    effect: true
+    effect_list:
+      - bpm
+      - candy cane  
+      - confetti  
+      - cyclon rainbow  
+      - dots  
+      - fire  
+      - glitter  
+      - juggle  
+      - lightning
+      - noise  
+      - police all  
+      - police one  
+      - rainbow  
+      - rainbow with glitter  
+      - ripple  
+      - sinelon  
+      - solid  
+      - twinkle  
+    brightness: true
+    flash: true
+    rgb: true
+    optimistic: false
+    qos: 0
+
+input_slider:
+  kitchen_animation_speed:
+    name: Kitchen Animation Speed
+    initial: 150
+    min: 1
+    max: 150
+    step: 10
+
+switch:
+  platform: mqtt
+  name: "Kitchen Accent Lights"
+  state_topic: "ha/kitchenaccent"
+  command_topic: "ha/kitchenaccent"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic:
+  false retain: true
