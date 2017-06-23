@@ -1,49 +1,59 @@
-# dasher:
-#   build: dasher
+version: '3'
+services:
+  mqtt-ext:
+    image: mosquitto-rpi
+    restart: always
+    ports: 
+      - "8083:8083"
+      - "8883:8883"
+    volumes:
+        - /etc/letsencrypt:/etc/letsencrypt
+        - /home/pi/homeassistant/mosquitto-ext.conf:/mosquitto/config/mosquitto.conf
+        - /etc/ssl/certs/DST_Root_CA_X3.pem:/mosquitto/DST_Root_CA_X3.pem
+        - /home/pi/homeassistant/pwfile:/etc/mosquitto/pwfile
+        - /mosquitto/data
+        - /mosquitto/log
+  mqtt-int:
+    image: mosquitto-rpi
+    restart: always
+    depends_on:
+      - mqtt-ext
+    ports: 
+      - "1883:1883"
+    volumes:
+        - /home/pi/homeassistant/mosquitto-int.conf:/mosquitto/config/mosquitto.conf
+        - /etc/ssl/certs/DST_Root_CA_X3.pem:/mosquitto/DST_Root_CA_X3.pem
+        - /mosquitto/data 
+        - /mosquitto/log
 
-mqtt-ext:
-  image: eclipse-mosquitto
-  ports: 
-    - "8083:8083"
-    - "8883:8883"
-  volumes:
+  influxdb:
+    image: hypriot/rpi-influxdb
+    restart: always
+    ports:
+      - "8086:8086"
+    volumes:
+      #- /home/pi/influxdb:/var/lib/influxdb
+      - /home/pi/influxdb:/data
+  grafana:
+    image: pithings/rpi-grafana
+    restart: always 
+    depends_on:
+      - influxdb
+    ports:
+      - "3000:3000"
+    volumes: 
+      - /home/pi/grafana:/var/lib/grafana
+
+  home-assistant:
+    image: homeassistant/raspberrypi-homeassistant
+    restart: always
+    depends_on:
+      - mqtt-int
+      - influxdb
+    volumes:
       - /etc/letsencrypt:/etc/letsencrypt
-      - /home/steve/homeassistant/mosquitto-ext.conf:/mosquitto/config/mosquitto.conf
-      - /etc/ssl/certs/DST_Root_CA_X3.pem:/mosquitto/DST_Root_CA_X3.pem
-      - /home/steve/homeassistant/pwfile:/etc/mosquitto/pwfile
-      - /mosquitto/data
-      - /mosquitto/log 
-mqtt-int:
-  image: eclipse-mosquitto
-  ports: 
-    - "1883:1883"
-  volumes:
-      - /home/steve/homeassistant/mosquitto-int.conf:/mosquitto/config/mosquitto.conf
-      - /etc/ssl/certs/DST_Root_CA_X3.pem:/mosquitto/DST_Root_CA_X3.pem
-      - /mosquitto/data 
-      - /mosquitto/log
-
-influxdb:
-  image: influxdb
-  ports:
-    - "8086:8086"
-  volumes:
-    - /home/steve/influxdb:/var/lib/influxdb
-
-grafana:
-  image: grafana/grafana
-  ports:
-    - "3000:3000"
-  volumes: 
-    - /home/steve/grafana:/var/lib/grafana
-
-home-assistant:
-  image: homeassistant/home-assistant
-  volumes:
-    - /etc/letsencrypt:/etc/letsencrypt
-    - /home/steve/homeassistant:/config
-    - /etc/localtime:/etc/localtime:ro
-  devices:
-    - "/dev/ttyUSB0:/zwaveusbstick:rwm"
-  net: "host"
-
+      - /home/pi/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - "/dev/ttyUSB0:/zwaveusbstick:rwm"
+    network_mode: "host"
