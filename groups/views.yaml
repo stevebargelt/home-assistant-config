@@ -26,3 +26,9 @@ Info:
     - group.all_automations
     - group.all_scripts
     - group.everything
+    - group.links
+
+Links:
+  - weblink.grafana
+  - weblink.media_server_plex
+  - weblink.router
