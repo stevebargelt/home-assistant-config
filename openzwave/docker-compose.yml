@@ -1,0 +1,14 @@
+version: "2"
+services:
+  openzwave-panel:
+    # build:
+    #   context: .
+    image: eugenmayer/openzwave-panel
+    volumes:
+      - /home/pi/homeassistant/zwcfg_0x000061b2.xml:/opt/open-zwave-control-panel/zwcfg_0x000061b2.xml
+      #- /home/pi/homassistant/options.xml:/opt/open-zwave-control-panel/options.xml
+    ports:
+      - "8080:8080"
+    devices:
+      - "/dev/ttyUSB0:/zwaveusbstick:rwm"
+  

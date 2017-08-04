@@ -1,7 +1,8 @@
 Master Bedroom Lights:
   entities:
     - switch.steve_lamp_switch_4_0
-
+    - light.maggie_lamp_level_8_0
+    
 Kitchen Lights:
   entities:
     - light.kitchen_accent

@@ -54,7 +54,7 @@ group: !include_dir_merge_named groups
 #######################################################
 
 mqtt:
-  broker: 192.168.1.107
+  broker: 192.168.1.5
 
 switch:
   - platform: mqtt
@@ -93,7 +93,7 @@ device_tracker:
     max_gps_accuracy: 200
 
 influxdb:
-  host: 192.168.1.107
+  host: 192.168.1.5
   database: homeassistant
   username: !secret influxdb_username
   password: !secret influxdb_password
