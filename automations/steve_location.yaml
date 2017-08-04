@@ -6,7 +6,7 @@
 #   trigger:
 #     - platform: state
 #       entity_id: device_tracker.steveiphone
-#       state: 'not_home' 
+#       to: 'not_home' 
 #       for:
 #         minutes: 10
 #   action:
@@ -21,7 +21,7 @@
 #   trigger:
 #     - platform: state
 #       entity_id: device_tracker.steveiphone
-#       state: 'home' 
+#       to: 'home' 
 #   action:
 #      service: homeassistant.turn_on
 #      entity_id: input_boolean.stevehome

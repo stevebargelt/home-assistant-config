@@ -6,7 +6,7 @@
 #   trigger:
 #     - platform: state
 #       entity_id: input_boolean.good_night
-#       state: 'on'
+#       to: 'on'
 #       from: 'off'
 
 #   condition:
