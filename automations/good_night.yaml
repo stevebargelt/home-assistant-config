@@ -1,25 +1,25 @@
-######################################################################
-##  Night Routine
-######################################################################
+# ######################################################################
+# ##  Night Routine
+# ######################################################################
 
-- alias: 'Good Night Trigger'
-  trigger:
-    - platform: state
-      entity_id: input_boolean.good_night
-      state: 'on'
-      from: 'off'
+# - alias: 'Good Night Trigger'
+#   trigger:
+#     - platform: state
+#       entity_id: input_boolean.good_night
+#       state: 'on'
+#       from: 'off'
 
-  condition:
-    - condition: state
-      entity_id: input_boolean.guest_mode
-      state: 'off'
+#   condition:
+#     - condition: state
+#       entity_id: input_boolean.guest_mode
+#       state: 'off'
 
-  action:
-    - service: script.interior_off
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.good_night
-    - service: tts.amazon_polly_say
-      data:
-        entity_id: media_player.master_bedroom
-        message: 'Good Night. Sleep tight.'
-    - service: script.play_night_sounds
+#   action:
+#     - service: script.interior_off
+#     - service: input_boolean.turn_off
+#       entity_id: input_boolean.good_night
+#     - service: tts.amazon_polly_say
+#       data:
+#         entity_id: media_player.master_bedroom
+#         message: 'Good Night. Sleep tight.'
+#     - service: script.play_night_sounds

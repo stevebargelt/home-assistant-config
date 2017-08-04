@@ -1,12 +1,12 @@
-######################################################################
-##  Play Night Sounds
-######################################################################
+# ######################################################################
+# ##  Play Night Sounds
+# ######################################################################
 
-- alias: 'Play Night Sounds Trigger'
-  trigger:
-    - platform: state
-      entity_id: input_boolean.play_night_sounds
-      state: 'on'
-      from: 'off'
-  action:
-    - service: script.play_night_sounds
+# - alias: 'Play Night Sounds Trigger'
+#   trigger:
+#     - platform: state
+#       entity_id: input_boolean.play_night_sounds
+#       state: 'on'
+#       from: 'off'
+#   action:
+#     - service: script.play_night_sounds
