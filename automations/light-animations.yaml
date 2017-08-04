@@ -1,11 +1,11 @@
-- alias: "Kitchen Animation Speed"
-  initial_state: True
-  hide_entity: False
-  trigger:
-    - platform: state
-      entity_id: input_slider.kitchen_animation_speed
-  action:
-    - service: mqtt.publish
-      data_template:
-        topic: "bruh/kitchenaccent/set"
-        payload: '{"transition":{{ trigger.to_state.state | int }}}'
+# - alias: "Kitchen Animation Speed"
+#   initial_state: True
+#   hide_entity: False
+#   trigger:
+#     - platform: state
+#       entity_id: input_slider.kitchen_animation_speed
+#   action:
+#     - service: mqtt.publish
+#       data_template:
+#         topic: "bruh/kitchenaccent/set"
+#         payload: '{"transition":{{ trigger.to_state.state | int }}}'

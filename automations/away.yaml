@@ -9,9 +9,6 @@
     - condition: state
       entity_id: input_boolean.guest_mode
       state: 'off'
-    # - condition: state
-    #   entity_id: input_boolean.wfh_mode
-    #   state: 'off'
 
   action:
     - service: script.interior_off
