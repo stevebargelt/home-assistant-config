@@ -1,26 +1,26 @@
-# ###################################
-# ##  Notify via IFTTT when something goes down...
-# ###################################
+###################################
+##  Notify via IFTTT when something goes down...
+###################################
 
-# - alias: 'Device Status'
-#   hide_entity: True
-#   trigger:
-#     - platform: state
-#       entity_id:
-#         - sensor.xbox_one
-#         - sensor.amazon_echo
-#         - sensor.amazon_dot_master_bath
-#       to: 'offline'
-#       for:
-#         minutes: 5
+- alias: 'Device Status'
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.xbox_one
+        - sensor.amazon_echo
+        - sensor.amazon_dot_master_bath
+      to: 'offline'
+      for:
+        minutes: 5
 
-#   action:
-#     - service: script.ifttt_notify
-#       data_template:
-#         value1: 'Device Status:'
-#         value2: "{{ trigger.entity_id.split('.')[1]|replace('_', ' ') }} is "
-#         value3: "{{ trigger.to_state.state }}"
+  action:
+    - service: script.ifttt_notify
+      data_template:
+        value1: 'Device Status:'
+        value2: "{{ trigger.entity_id.split('.')[1]|replace('_', ' ') }} is "
+        value3: "{{ trigger.to_state.state }}"
 
-#     # - service: script.Voice_notify
-#     #   data_template:
-#     #     value1: "{{ trigger.entity_id.split('.')[1]|replace('_', ' ') }} is now {{ trigger.to_state.state }}"
+    # - service: script.Voice_notify
+    #   data_template:
+    #     value1: "{{ trigger.entity_id.split('.')[1]|replace('_', ' ') }} is now {{ trigger.to_state.state }}"
