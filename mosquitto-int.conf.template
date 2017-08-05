@@ -1,11 +1,12 @@
 persistence true
 persistence_location /mosquitto/data/
-log_dest file /mosquitto/log/mosquitto.log
+log_dest file /mosquitto/log/mosquitto-int.log
 
 # Bridge to ext
 connection mosquitto-ext
+bridge_cafile <PATH_TO/DST_Root_CA_X3.pem>
 bridge_insecure false
-address control.bargelt.com:8883
+address DOMAIN_OR_IP_ADDRESS:8383
 start_type automatic
 remote_username !test
 remote_password !test
