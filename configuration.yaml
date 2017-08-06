@@ -84,6 +84,11 @@ influxdb:
 
 ios:
 
+device_tracker:
+  - platform: owntracks
+    max_gps_accuracy: 200
+
+
 #######################################################
 #####     TESTING AREA BELOW                      #####
 #######################################################
@@ -91,10 +96,10 @@ ios:
 panel_iframe:
   download:
     title: 'Download Speed'
-    url: ''
+    url: !secret grafanadownload
   upload:
     title: 'Upload Speed'
-    url: ''
+    url: !secret grafanaupload
 
 tts:
   - platform: amazon_polly
@@ -107,10 +112,6 @@ media_player:
   - platform: spotify
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret
-
-device_tracker:
-  - platform: owntracks
-    max_gps_accuracy: 200
 
 # light:
 #   - platform: mqtt_json
