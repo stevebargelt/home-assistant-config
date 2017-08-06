@@ -24,3 +24,4 @@ pyozw.sqlite
 pwfile
 .uuid
 mosquitto-int.conf
+plex.conf

@@ -50,12 +50,8 @@ input_boolean: !include_dir_merge_named inputbools
 group: !include_dir_merge_named groups
 weblink: !include includes/weblinks.yaml
 
-#######################################################
-#####     TESTING AREA BELOW                      #####
-#######################################################
-
 mqtt:
-  broker: 192.168.1.5
+  broker: !secret ipaddress
 
 switch:
   - platform: mqtt
@@ -76,7 +72,30 @@ switch:
     payload_off: "OFF"
     optimistic:
     false retain: true\
-  
+
+influxdb:
+  host: !ipaddress
+  database: homeassistant
+  username: !secret influxdb_username
+  password: !secret influxdb_password
+  tags:
+    instance: prod
+    source: ha
+
+ios:
+
+#######################################################
+#####     TESTING AREA BELOW                      #####
+#######################################################
+
+panel_iframe:
+  download:
+    title: 'Download Speed'
+    url: ''
+  upload:
+    title: 'Upload Speed'
+    url: ''
+
 tts:
   - platform: amazon_polly
     aws_access_key_id: !secret aws_access_key_id 
@@ -92,17 +111,6 @@ media_player:
 device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200
-
-influxdb:
-  host: 192.168.1.5
-  database: homeassistant
-  username: !secret influxdb_username
-  password: !secret influxdb_password
-  tags:
-    instance: prod
-    source: ha
-  
-ios:
 
 # light:
 #   - platform: mqtt_json
