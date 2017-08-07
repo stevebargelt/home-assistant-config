@@ -51,8 +51,8 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: "/run/secrets/mysqlrootpassword"
-      MYSQL_PASSWORD: "/run/secrets/mysqlpassword"      
+      MYSQL_ROOT_PASSWORD_FILE: "/run/secrets/mysqlrootpassword"
+      MYSQL_PASSWORD_FILE: "/run/secrets/mysqlpassword"      
       MYSQL_DATABASE: 'homeassistant'
       MYSQL_USER: 'hass'
 
@@ -71,8 +71,8 @@ services:
       - "/dev/ttyUSB0:/zwaveusbstick:rwm"
     network_mode: "host"
 
-secrets:
-  mysqlrootpassword:
-    file: ./mysqlrootpassword.txt
-  mysqlpassword:
-    file: ./mysqlpassword.txt
+  secrets:
+    mysqlrootpassword:
+      file: ./mysqlrootpassword.txt
+    mysqlpassword:
+      file: ./mysqlpassword.txt
