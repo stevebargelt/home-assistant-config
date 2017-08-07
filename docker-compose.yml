@@ -69,8 +69,6 @@ services:
       - /etc/localtime:/etc/localtime:ro
     devices:
       - "/dev/ttyUSB0:/zwaveusbstick:rwm"
-    links:
-      - db:db
     network_mode: "host"
 
 secrets:
