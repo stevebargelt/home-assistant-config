@@ -19,20 +19,17 @@ http:
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
   login_attempts_threshold: 3
-  base_url: control.bargelt.com
+  base_url: !secret externaldomain
 
 frontend:
 config:
 updater:
 discovery:
-
-sun:
-wemo:
-  static:
-    - 192.168.1.232
-  
 history:
 logbook:
+sun:
+wemo:
+ios:
 
 zwave:
   usb_path: /zwaveusbstick
@@ -82,8 +79,6 @@ influxdb:
     instance: prod
     source: ha
 
-ios:
-
 device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200
@@ -93,13 +88,13 @@ device_tracker:
 #####     TESTING AREA BELOW                      #####
 #######################################################
 
-panel_iframe:
-  download:
-    title: 'Download Speed'
-    url: !secret grafanadownload
-  upload:
-    title: 'Upload Speed'
-    url: !secret grafanaupload
+# panel_iframe:
+#   download:
+#     title: 'Download Speed'
+#     url: !secret grafanadownload
+#   upload:
+#     title: 'Upload Speed'
+#     url: !secret grafanaupload
 
 tts:
   - platform: amazon_polly
