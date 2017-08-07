@@ -74,7 +74,7 @@ switch:
     false retain: true\
 
 influxdb:
-  host: !ipaddress
+  host: !secret ipaddress
   database: homeassistant
   username: !secret influxdb_username
   password: !secret influxdb_password
