@@ -41,40 +41,17 @@ device_tracker.owntracksuser_steveiphone:
 #####      Switches                               #####
 #######################################################
 
-zwave.act_zdp100_plugin_lamp_module_8:
-  friendly_name: "Kitchen Accent"
-  emulated_hue: True
-  hidden: False
-  icon: mdi:power-plug
+# zwave.act_zdp100_plugin_lamp_module_8:
+#   friendly_name: "Kitchen Accent"
+#   emulated_hue: True
+#   hidden: False
+#   icon: mdi:power-plug
 
 switch.mqtt_switch:
   friendly_name: "Water Kettle"
   emulated_hue: True
   hidden: False
 
-#######################################################
-#####      Sensors                                #####
-#######################################################
-
-zwave.__9:
-  friendly_name: "Entry Multisensor"
-  emulated_hue: False
-  hidden: True
-
-sensor.entry_multisenso_general_9_2:
-  friendly_name: "Entry Sensor General"
-  emulated_hue: False
-  hidden: False
-  
-sensor.entry_multisenso_luminance_9_3_2:
-  friendly_name: "Entry Luminance"
-  emulated_hue: False
-  hidden: False
-  
-sensor.entry_multisenso_temperature_9_1_3:
-  friendly_name: "Entry Temp"
-  emulated_hue: False
-  hidden: False
 
 #######################################################
 #####      Groups                                 #####
