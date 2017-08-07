@@ -1,7 +1,7 @@
 Master Bedroom Lights:
   entities:
-    - switch.steve_lamp_switch_4_0
-    - light.maggie_lamp_level_8_0
+    - switch.steve_lamp_switch
+    - light.light.maggie_lamp_level
     
 Kitchen Lights:
   entities:
@@ -18,7 +18,7 @@ Dining Room Lights:
 
 Office Lights:
   entities:
-    - switch.office_lamp_switch_3_0
+    - switch.office_lamp_switch
 
 Everything:
   entities:
