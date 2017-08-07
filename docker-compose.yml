@@ -65,7 +65,7 @@ services:
     depends_on:
       - mqtt-int
       - influxdb
-      - db
+      # - db
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
       - /home/pi/homeassistant:/config
