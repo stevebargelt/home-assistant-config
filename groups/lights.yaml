@@ -1,7 +1,7 @@
-Master Bedroom Lights:
-  entities:
-    - switch.steve_lamp_switch
-    - light.light.maggie_lamp
+# Master Bedroom Lights:
+#   entities:
+#     - zwave.steve_lamp
+#     - zwave.maggie_lamp
     
 Kitchen Lights:
   entities:
