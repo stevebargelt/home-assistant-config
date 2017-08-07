@@ -18,7 +18,7 @@
     - service: switch.turn_on
       entity_id:
         - switch.kitchen_overhead
-        - switch.steve_lamp_switch_4_0
+        - switch.steve_lamp_switch
         - switch.water_kettle
         
     - service: input_boolean.turn_off
