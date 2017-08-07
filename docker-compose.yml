@@ -50,6 +50,9 @@ services:
       - /home/pi/homeassistant/mysql:/var/lib/mysql
     ports:
       - "3306:3306"
+    secrets:
+      - mysqlrootpassword
+      - mysqlpassword
     environment:
       MYSQL_ROOT_PASSWORD_FILE: "/run/secrets/mysqlrootpassword"
       MYSQL_PASSWORD_FILE: "/run/secrets/mysqlpassword"      
