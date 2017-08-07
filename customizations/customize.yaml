@@ -47,8 +47,22 @@ device_tracker.owntracksuser_steveiphone:
 #   hidden: False
 #   icon: mdi:power-plug
 
+switch.steve_lamp_switch:
+  friendly_name: "Steve Lamp"
+  emulated_hue: True
+  hidden: False
+
 switch.mqtt_switch:
   friendly_name: "Water Kettle"
+  emulated_hue: True
+  hidden: False
+
+#######################################################
+#####      Lights                                 #####
+#######################################################
+
+light.maggie_lamp_level:
+  friendly_name: "Maggie Lamp"
   emulated_hue: True
   hidden: False
 
