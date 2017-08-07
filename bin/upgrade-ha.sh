@@ -1,10 +1,7 @@
 #!/bin/bash
 
 NAME="home-assistant"
-CONFIG="/usr/local/etc/homeassistant"
-LOCALTIME="/etc/localtime"
-LOCALBACKUP="/home/graeme/home-assistant-backup"
-ZWAVEDEVICE="/dev/ttyACM0"
+PROJECT="ha"
 
 ########## header(text, colour) - echo text in colour, if colour is not set use red
 #
@@ -12,6 +9,10 @@ ZWAVEDEVICE="/dev/ttyACM0"
 # 6 - Cyan,  7 - White
 #
 ##########
+# docker-compose -p ha stop home-assistant
+# docker-compose -p ha rm --force home-assistant
+# docker pull homeassistant/raspberrypi-homeassistant
+# docker-compose -p ha up -d
 
 header() {
   if [ -z "$2" ]; then
@@ -22,7 +23,7 @@ header() {
 }
 
 ##########
-
+DOCKERCOMPOSE = `which docker-compose`
 DOCKER=`which docker`
 
 header "Home Assistant Upgrade for Docker" 6
@@ -36,9 +37,17 @@ else
   exit 1
 fi
 
+if which docker-compose >/dev/null; then
+  header "Found Docker Compose" 6
+  DOCKERCOMPOSE=`which docker-compose`
+else
+  header "Docker Compose not found. Exiting..." 1
+  exit 1
+fi
+
 header "Stopping docker container..." 6
 
-if $DOCKER stop $NAME; then
+if $DOCKERCOMPOSE -p $PROJECT stop $NAME; then
   header "Stopped docker container" 2 
 else
   header "Failed to stop docker container or container already stopped. Continuing..." 1
@@ -47,26 +56,26 @@ fi
 
 header "Removing docker container..." 6
 
-if $DOCKER rm --force $NAME; then
+if $DOCKERCOMPOSE -p $PROJECT rm --force $NAME; then
   header "Removed docker container" 2 
 else
   header "Failed to remove docker container or container already removed. Continuing..." 1
 fi
 
 
-header "Pulling Latest Home Assistant" 6
+header "Pulling Latest RPi Home Assistant" 6
 
-if $DOCKER pull homeassistant/home-assistant:dev; then
-  header "Pulled Home Assistant DEV" 2 
+if $DOCKER pull homeassistant/raspberrypi-homeassistant then
+  header "Pulled RPi Home Assistant" 2 
 else
-  header "Failed to pull Home Assistant DEV" 1
+  header "Failed to pull RPi Home Assistant" 1
   exit 1
 fi
 
 
 header "Starting Home Assistant" 6
 
-if $DOCKER run --restart=always -d --name="$NAME" -v /etc/letsencrypt:/etc/letsencrypt -v /home/steve/homeassistant:/config -v /etc/localtime:/etc/localtime:ro --device=/dev/ttyUSB0:/zwaveusbstick:rwm --net=host homeassistant/home-assistant:dev; then
+if $DOCKERCOMPOSE -p ha up -d then
   header "Started Home Assistant" 2
 else
   header "Failed to start Home Assistant" 1

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME="home-assistant"
+NAME="ha_home-assistant_1"
 
 ########## header(text, colour) - echo text in colour, if colour is not set use red
 #
