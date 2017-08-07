@@ -71,8 +71,8 @@ services:
       - "/dev/ttyUSB0:/zwaveusbstick:rwm"
     network_mode: "host"
 
-  secrets:
-    mysqlrootpassword:
-      file: ./mysqlrootpassword.txt
-    mysqlpassword:
-      file: ./mysqlpassword.txt
+secrets:
+  mysqlrootpassword:
+    file: ./mysqlrootpassword.txt
+  mysqlpassword:
+    file: ./mysqlpassword.txt
