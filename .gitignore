@@ -25,3 +25,5 @@ pwfile
 .uuid
 mosquitto-int.conf
 plex.conf
+mysqlrootpassword.txt
+mysqlpassword.txt
