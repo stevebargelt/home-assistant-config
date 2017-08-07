@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 services:
   mqtt-ext:
     image: mosquitto-rpi
@@ -43,6 +43,18 @@ services:
       - "3000:3000"
     volumes: 
       - /home/pi/grafana:/var/lib/grafana
+  db:
+    image: hypriot/rpi-mysql:5.5
+    restart: always
+    volumes:
+      - /home/pi/homeassistant/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "/run/secrets/mysqlrootpassword"
+      MYSQL_PASSWORD: "/run/secrets/mysqlpassword"      
+      MYSQL_DATABASE: 'homeassistant'
+      MYSQL_USER: 'hass'
 
   home-assistant:
     image: homeassistant/raspberrypi-homeassistant
@@ -50,6 +62,7 @@ services:
     depends_on:
       - mqtt-int
       - influxdb
+      - db
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
       - /home/pi/homeassistant:/config
@@ -57,3 +70,9 @@ services:
     devices:
       - "/dev/ttyUSB0:/zwaveusbstick:rwm"
     network_mode: "host"
+
+secrets:
+  mysqlrootpassword:
+    file: ./mysqlrootpassword.txt
+  mysqlpassword:
+    file: ./mysqlpassword.txt
