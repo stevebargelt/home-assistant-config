@@ -30,6 +30,8 @@ logbook:
 sun:
 wemo:
 ios:
+logger:
+  default: warn
 
 zwave:
   usb_path: /zwaveusbstick
@@ -44,6 +46,7 @@ sensor: !include_dir_merge_list sensors
 automation: !include_dir_merge_list automations
 script: !include_dir_merge_named scripts
 input_boolean: !include_dir_merge_named inputbools
+input_select: !include_dir_merge_named inputselects
 group: !include_dir_merge_named groups
 weblink: !include includes/weblinks.yaml
 
@@ -90,7 +93,7 @@ device_tracker:
 
 recorder:
   purge_days: 1
-  db_url: !secret my_db
+  #db_url: !secret my_db
 
 # panel_iframe:
 #   download:
