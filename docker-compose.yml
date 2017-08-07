@@ -54,8 +54,7 @@ services:
       MYSQL_ROOT_PASSWORD: "/run/secrets/mysqlrootpassword"
       MYSQL_PASSWORD: "/run/secrets/mysqlpassword"      
       MYSQL_DATABASE: 'homeassistant'
-      MYSQL_USER: 'hass@rpi-ha.home'
-    network_mode: "host"
+      MYSQL_USER: 'hass'
 
   home-assistant:
     image: homeassistant/raspberrypi-homeassistant
@@ -70,6 +69,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
     devices:
       - "/dev/ttyUSB0:/zwaveusbstick:rwm"
+    links:
+      - db:db
     network_mode: "host"
 
 secrets:
