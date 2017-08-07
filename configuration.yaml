@@ -90,7 +90,7 @@ device_tracker:
 
 recorder:
   purge_days: 1
-  #db_url: !secret my_db
+  db_url: !secret my_db
 
 # panel_iframe:
 #   download:
