@@ -88,6 +88,10 @@ device_tracker:
 #####     TESTING AREA BELOW                      #####
 #######################################################
 
+recorder:
+  purge_days: 1
+  #db_url: !secret my_db
+
 # panel_iframe:
 #   download:
 #     title: 'Download Speed'
