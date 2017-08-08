@@ -1,3 +1,5 @@
+# device_tracker.steveiphone : iPhone from HA on phone
+# device_tracker.owntracksuser_steveiphone : from OwnTracks
 - alias: 'Mark Steve Away'
   condition:
     condition: state
@@ -5,10 +7,16 @@
     state: 'on'
   trigger:
     - platform: state
-      entity_id: device_tracker.steveiphone
+      entity_id: device_tracker.steveiphone #hass app on phone
       to: 'not_home' 
       for:
-        minutes: 10
+        minutes: 5
+  trigger:
+    - platform: state
+      entity_id: device_tracker.owntracksuser_steveiphone #owntracks
+      to: 'not_home'
+      for:
+        minutes: 5
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.stevehome
@@ -20,8 +28,12 @@
     state: 'off'
   trigger:
     - platform: state
-      entity_id: device_tracker.steveiphone
+      entity_id: device_tracker.steveiphone #hass App on iPhone
       to: 'home' 
+  trigger:
+    - platform: state
+      entity_id: device_tracker.owntracksuser_steveiphone #owntracks
+      to: 'home'
   action:
      service: homeassistant.turn_on
      entity_id: input_boolean.stevehome

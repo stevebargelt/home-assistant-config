@@ -1,0 +1,37 @@
+- alias: 'Mark Maggie Away'
+  condition:
+    condition: state
+    entity_id: input_boolean.maggiehome
+    state: 'on'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.margarets_iphone #hass app on iphone
+      to: 'not_home' 
+      for:
+        minutes: 5
+  trigger:
+    - platform: state
+      entity_id: device_tracker.owntracksuser_maggieiphone #owntracks
+      to: 'not_home'
+      for:
+        minutes: 5
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.maggiehome
+
+- alias: 'Mark Maggie Home'
+  condition:
+    condition: state
+    entity_id: input_boolean.maggiehome
+    state: 'off'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.margarets_iphone
+      to: 'home' 
+  trigger:
+    - platform: state
+      entity_id: device_tracker.owntracksuser_maggieiphone #owntracks
+      to: 'home'
+  action:
+     service: homeassistant.turn_on
+     entity_id: input_boolean.maggiehome

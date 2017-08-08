@@ -2,9 +2,7 @@
   trigger:
     - platform: state
       entity_id: group.family
-      to: 'not_home'
-      for: '00:10:00'
-
+      to: False
   condition:
     - condition: state
       entity_id: input_boolean.guest_mode
@@ -15,4 +13,4 @@
     - service: script.ifttt_notify
       data_template:
         value1: 'Away Mode Activated'
-        value2: 'Group Family - has not been home for longer than 10:00 minutes'
+        value2: 'Group Family - is not home'

@@ -1,3 +1,8 @@
 Family:
   entities:
-    - device_tracker.owntracksuser_steveiphone
+    # - device_tracker.owntracksuser_steveiphone #owntracks app
+    # - device_tracker.steveiphone #hass app
+    # - device_tracker.owntracksuser_maggieiphone #owntracks app
+    # - device_tracker.margarets_iphone #hass app
+    - input_boolean.stevehome
+    - input_boolean.maggiehome
