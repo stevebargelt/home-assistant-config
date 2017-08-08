@@ -2,7 +2,7 @@
   trigger:
     - platform: state
       entity_id: group.family
-      to: "False"
+      to: 'off'
   condition:
     - condition: state
       entity_id: input_boolean.guest_mode
