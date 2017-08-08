@@ -9,7 +9,6 @@
       to: 'not_home' 
       for:
         minutes: 5
-  trigger:
     - platform: state
       entity_id: device_tracker.owntracksuser_maggieiphone #owntracks
       to: 'not_home'
@@ -28,7 +27,6 @@
     - platform: state
       entity_id: device_tracker.margarets_iphone
       to: 'home' 
-  trigger:
     - platform: state
       entity_id: device_tracker.owntracksuser_maggieiphone #owntracks
       to: 'home'
