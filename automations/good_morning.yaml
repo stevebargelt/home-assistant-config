@@ -12,7 +12,7 @@
   # condition:
   #   - condition: state
   #     entity_id: group.family
-  #     state: home
+  #     state: 'on'
 
   action:
     - service: switch.turn_on

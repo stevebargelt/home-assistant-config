@@ -4,7 +4,7 @@ Bargelt Home View:
   icon: mdi:home
   entities:
     - persistent_notification.update_available
-    - group.family
+    - group.family_home
     - group.home_modes
     - group.interior_lights
     - switch.water_kettle
@@ -13,7 +13,7 @@ Info:
   view: yes
   icon: mdi:settings
   entities:
-    - group.family
+    - group.family_home
     - group.home_modes
     - group.network
     - group.weather

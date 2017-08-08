@@ -6,8 +6,8 @@
   trigger:
     - platform: state
       entity_id:
-        - group.family
-      from: 'not_home'
+        - group.family_home
+      from: 'on'
       to: 'home'
       for: '00:10:00'
 
