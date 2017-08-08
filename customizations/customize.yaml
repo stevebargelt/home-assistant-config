@@ -41,12 +41,6 @@ device_tracker.owntracksuser_steveiphone:
 #####      Switches                               #####
 #######################################################
 
-# zwave.act_zdp100_plugin_lamp_module_8:
-#   friendly_name: "Kitchen Accent"
-#   emulated_hue: True
-#   hidden: False
-#   icon: mdi:power-plug
-
 switch.steve_lamp_switch:
   friendly_name: "Steve Lamp"
   emulated_hue: True
