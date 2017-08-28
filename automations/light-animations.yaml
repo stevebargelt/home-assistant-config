@@ -7,5 +7,5 @@
   action:
     - service: mqtt.publish
       data_template:
-        topic: "bruh/kitchenaccent/set"
+        topic: "ha/kitchenaccent/set"
         payload: '{"transition":{{ trigger.to_state.state | int }}}'
