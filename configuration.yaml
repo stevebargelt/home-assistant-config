@@ -48,6 +48,7 @@ script: !include_dir_merge_named scripts
 input_boolean: !include_dir_merge_named inputbools
 input_select: !include_dir_merge_named inputselects
 group: !include_dir_merge_named groups
+scene: !include_dir_merge_list scene
 weblink: !include includes/weblinks.yaml
 
 mqtt:
@@ -63,15 +64,6 @@ switch:
     payload_off: "OFF"
     optimistic:
     false retain: true
-  - platform: mqtt
-    name: "Kitchen Accent Lights"
-    state_topic: "ha/kitchenaccent"
-    command_topic: "ha/kitchenaccent"
-    qos: 0
-    payload_on: "ON"
-    payload_off: "OFF"
-    optimistic:
-    false retain: true\
 
 influxdb:
   host: !secret ipaddress
@@ -115,36 +107,18 @@ media_player:
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret
 
-# light:
-#   - platform: mqtt_json
-#     name: "Kitchen Strip"
-#     state_topic: "ha/kitchenaccent"
-#     command_topic: "ha/kitchenaccent/set"
-#     effect: true
-#     effect_list:
-#       - bpm
-#       - candy cane  
-#       - confetti  
-#       - cyclon rainbow  
-#       - dots  
-#       - fire  
-#       - glitter  
-#       - juggle  
-#       - lightning
-#       - noise  
-#       - police all  
-#       - police one  
-#       - rainbow  
-#       - rainbow with glitter  
-#       - ripple  
-#       - sinelon  
-#       - solid  
-#       - twinkle  
-#     brightness: true
-#     flash: true
-#     rgb: true
-#     optimistic: false
-#     qos: 0
+light:
+  - platform: mqtt_json
+    name: "Kitchen Accent"
+    state_topic: "ha/kitchenaccent"
+    command_topic: "ha/kitchenaccent/set"
+    effect: true
+    effect_list: [fire, rainbow, solid]
+    brightness: true
+    flash: true
+    rgb: true
+    optimistic: false
+    qos: 0
 
 # input_slider:
 #   kitchen_animation_speed:
