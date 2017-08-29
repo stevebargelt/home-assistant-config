@@ -3,12 +3,13 @@
   entities:
     light.kitchen_accent:
       state: off
-      #transition: 2
 
 - name: Night Light
   entities:
-    scene.tv_dim:
+    scene.kitchen_dim:
       state: on
+    switch.kitchen_overhead:
+      state: off
 
 # Kitchen Lighting Scenes
 - name: Kitchen Bright
@@ -21,8 +22,8 @@
   entities:
     light.kitchen_accent:
       state: on
-      #transition: 2
-      rgb_color: [100, 100, 100]
+      brightness: 80
+      rgb_color: [255, 255, 255]
 - name: Kitchen Night Light
   entities:
     light.kitchen_accent:
@@ -36,7 +37,7 @@
       state: on
       transition: 1
       effect: fire
-- name: Kitchen Rainboe
+- name: Kitchen Rainbow
   entities:
     light.kitchen_accent:
       state: on
