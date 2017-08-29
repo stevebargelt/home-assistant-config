@@ -4,32 +4,36 @@
     light.kitchen_accent:
       state: off
 
-- name: Night Light
-  entities:
-    scene.kitchen_dim:
-      state: on
-    switch.kitchen_overhead:
-      state: off
-
 # Kitchen Lighting Scenes
 - name: Kitchen Bright
   entities:
     light.kitchen_accent:
       state: on
-      #transition: 2
-      rgb_color: [255, 255, 255]
+      brightness: 255
+      rgb_color:  [255, 172, 93]
 - name: Kitchen Dim
   entities:
     light.kitchen_accent:
       state: on
       brightness: 80
-      rgb_color: [255, 255, 255]
+      rgb_color:  [255, 172, 93]
+- name: Kitchen Bright White
+  entities:
+    light.kitchen_accent:
+      state: on
+      brightness: 255
+      rgb_color:  [255, 255, 255]
+- name: Kitchen Maggie Color
+  entities:
+    light.kitchen_accent:
+      state: on
+      brightness: 255
+      rgb_color:  [102, 0, 153]
 - name: Kitchen Night Light
   entities:
     light.kitchen_accent:
       state: on
-      transition: 1
-      brightness: 255
+      brightness: 80
       rgb_color: [102, 0, 153]
 - name: Kitchen Fire
   entities:
