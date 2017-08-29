@@ -5,3 +5,15 @@
 docker-compose -p ha up -d
 
 docker-compose -p ha stop
+
+## Kitchen Accent Lights
+
+Example (color is approximate color of all other kitchen lights)
+
+```
+{"entity_id":"light.kitchen_accent",
+"effect":"solid",
+"rgb_color": [255, 172, 93],
+"brightness":255
+}
+```
