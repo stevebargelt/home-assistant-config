@@ -14,7 +14,6 @@ deps
 tts
 secrets.yaml
 known_devices.yaml
-plex.conf
 phue.conf
 harmony_media_room.conf
 pyozw.sqlite
@@ -28,3 +27,4 @@ plex.conf
 mysqlrootpassword.txt
 mysqlpassword.txt
 /mysql
+.vscode
