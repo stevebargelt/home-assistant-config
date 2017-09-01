@@ -28,3 +28,4 @@ mysqlrootpassword.txt
 mysqlpassword.txt
 /mysql
 .vscode
+.DS_Store
