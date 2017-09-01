@@ -11,11 +11,13 @@ RUN \
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
+#install dasher
+RUN cd /usr/src/app && export GIT_SSL_NO_VERIFY=1 && \
+    git config --global http.sslVerify false && \
+    git clone https://github.com/maddox/dasher.git .
+
 # Install app dependencies
-COPY package.json /usr/src/app/
 RUN npm install
 
 # Bundle app source
-COPY . /usr/src/app
-
-CMD npm run start
+CMD cd /usr/src/app && npm run start

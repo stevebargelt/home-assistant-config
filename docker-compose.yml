@@ -45,7 +45,7 @@ services:
       - /home/pi/grafana:/var/lib/grafana
 
   home-assistant:
-    image: homeassistant/raspberrypi-homeassistant
+    image: homeassistant/raspberrypi3-homeassistant
     restart: always
     depends_on:
       - mqtt-int
@@ -60,7 +60,6 @@ services:
 
   dasher:
     build: ./dasher/.
-    container_name: dasher
     volumes:
       - ./dasher/config:/usr/src/app/config 
     network_mode: "host"
