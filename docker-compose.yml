@@ -64,3 +64,12 @@ services:
       - ./dasher/config:/usr/src/app/config 
     network_mode: "host"
     restart: always
+
+  appdaemon:
+    build: ./appdaemon/.
+    restart: always
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./appdaemon/conf:/conf
+      - /etc/localtime:/etc/localtime:ro
