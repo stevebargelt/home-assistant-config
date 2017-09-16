@@ -61,6 +61,11 @@ switch.steve_lamp_switch:
   emulated_hue: True
   hidden: False
 
+switch.living_room_hanging_lamp_switch:
+  friendly_name: "Living Room Hanging Lamp"
+  emulated_hue: True
+  hidden: False
+
 switch.office_lamp_switch:
   friendly_name: "Office Lamp"
   emulated_hue: True
