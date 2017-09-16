@@ -16,14 +16,12 @@
 
   action:
     - service: switch.turn_on
-      entity_id:
-        - switch.kitchen_overhead
-        - switch.steve_lamp_switch
-        - switch.water_kettle
-        
+      entity_id: switch.water_kettle
+    - service: scene.turn_on
+      entity_id: scene.kitchen_dim
     - service: input_boolean.turn_off
       entity_id: input_boolean.good_morning
-    - service: tts.amazon_polly_say
-      data:
-        entity_id: media_player.master_bedroom
-        message: 'Good Morning. I hope you have a great day.'
+    #- service: tts.amazon_polly_say
+    #  data:
+    #    entity_id: media_player.master_bedroom
+    #    message: 'Good Morning. I hope you have a great day.'
