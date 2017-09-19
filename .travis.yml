@@ -8,3 +8,8 @@ script:
   - hass -c . --script check_config
 before_install:
   - mv travis_secrets.yaml secrets.yaml
+notifications:
+  slack:
+    rooms:
+      - bargelt:r8ZuK4YKz8rPmOfPZ07pFF49#general
+#      - bargelt:r8ZuK4YKz8rPmOfPZ07pFF49#random
