@@ -12,4 +12,5 @@ notifications:
   slack:
     rooms:
       - bargelt:r8ZuK4YKz8rPmOfPZ07pFF49#general
-#      - bargelt:r8ZuK4YKz8rPmOfPZ07pFF49#random
+    template:
+      - "Status: %{result}, Job: %{repository_name}, Build: %{build_number}, URL: %{build_url}"
