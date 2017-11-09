@@ -1,7 +1,0 @@
-entities:
-- name: Router
-  url: !secret weblink_router
-- name: Grafana
-  url: !secret weblink_grafana
-- name: Media Server Plex
-  url: !secret weblink_plex_server

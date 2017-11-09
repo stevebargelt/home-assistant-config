@@ -1,4 +1,0 @@
-Family Home:
-  entities:
-    - input_boolean.stevehome
-    - input_boolean.maggiehome
