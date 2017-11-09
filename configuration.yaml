@@ -9,10 +9,7 @@ homeassistant:
 
 http:
   api_password: !secret api_password
-  ssl_certificate: !secret ssl_certificate
-  ssl_key: !secret ssl_key
   login_attempts_threshold: 3
-  base_url: !secret externaldomain
 
 frontend:
 config:
