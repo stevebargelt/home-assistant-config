@@ -6,6 +6,4 @@ services:
     volumes:
       - /home/pi/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
-    devices:
-      - "/dev/ttyUSB0:/zwaveusbstick:rwm"
     network_mode: "host"

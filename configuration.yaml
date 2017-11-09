@@ -20,9 +20,5 @@ updater:
 discovery:
 sun:
 wemo:
-ios:
 logger:
   default: warn
-
-zwave:
-  usb_path: /zwaveusbstick
