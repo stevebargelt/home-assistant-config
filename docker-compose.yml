@@ -1,8 +1,7 @@
 version: '3.1'
 services:
   home-assistant:
-    image: 
-    
+    image: homeassistant/raspberrypi3-homeassistant
     restart: always
     volumes:
       - /home/pi/homeassistant:/config

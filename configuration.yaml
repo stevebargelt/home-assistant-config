@@ -26,9 +26,3 @@ logger:
 
 zwave:
   usb_path: /zwaveusbstick
-
-emulated_hue:
-  type: alexa
-
-ifttt:
-  key: !secret ifttt_key
