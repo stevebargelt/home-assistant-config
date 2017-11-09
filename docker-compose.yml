@@ -1,55 +1,8 @@
 version: '3.1'
 services:
-  mqtt-ext:
-    image: mosquitto-rpi
-    restart: always
-    ports: 
-      - "8083:8083"
-      - "8883:8883"
-    volumes:
-        - /etc/letsencrypt:/etc/letsencrypt
-        - /home/pi/homeassistant/mosquitto-ext.conf:/mosquitto/config/mosquitto.conf
-        - /etc/ssl/certs/DST_Root_CA_X3.pem:/mosquitto/DST_Root_CA_X3.pem
-        - /home/pi/homeassistant/pwfile:/etc/mosquitto/pwfile
-        - /mosquitto/data
-        - /mosquitto/log
-  mqtt-int:
-    image: mosquitto-rpi
-    restart: always
-    depends_on:
-      - mqtt-ext
-    ports: 
-      - "1883:1883"
-    volumes:
-        - /home/pi/homeassistant/mosquitto-int.conf:/mosquitto/config/mosquitto.conf
-        - /etc/ssl/certs/DST_Root_CA_X3.pem:/mosquitto/DST_Root_CA_X3.pem
-        - /mosquitto/data 
-        - /mosquitto/log
-
-  influxdb:
-    image: hypriot/rpi-influxdb
-    restart: always
-    ports:
-      - "8086:8086"
-    volumes:
-      #- /home/pi/influxdb:/var/lib/influxdb
-      - /home/pi/influxdb:/data
-  grafana:
-    image: pithings/rpi-grafana
-    restart: always 
-    depends_on:
-      - influxdb
-    ports:
-      - "3000:3000"
-    volumes: 
-      - /home/pi/grafana:/var/lib/grafana
-
   home-assistant:
     image: homeassistant/raspberrypi3-homeassistant
     restart: always
-    depends_on:
-      - mqtt-int
-      - influxdb
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
       - /home/pi/homeassistant:/config
@@ -57,19 +10,3 @@ services:
     devices:
       - "/dev/ttyUSB0:/zwaveusbstick:rwm"
     network_mode: "host"
-
-  dasher:
-    build: ./dasher/.
-    volumes:
-      - ./dasher/config:/usr/src/app/config 
-    network_mode: "host"
-    restart: always
-
-  appdaemon:
-    build: ./appdaemon/.
-    restart: always
-    ports:
-      - "5050:5050"
-    volumes:
-      - ./appdaemon/conf:/conf
-      - /etc/localtime:/etc/localtime:ro
