@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   mqtt-ext:
-    image: mosquitto-rpi
+    image: stevebargelt/mosquitto-rpi
     restart: always
     ports: 
       - "8083:8083"
@@ -14,7 +14,7 @@ services:
         - /mosquitto/data
         - /mosquitto/log
   mqtt-int:
-    image: mosquitto-rpi
+    image: stevebargelt/mosquitto-rpi
     restart: always
     depends_on:
       - mqtt-ext

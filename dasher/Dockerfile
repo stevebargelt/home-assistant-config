@@ -1,5 +1,5 @@
 FROM hypriot/rpi-node
-MAINTAINER	Steve Bargelt
+MAINTAINER Steve Bargelt <steve@bargelt.com>
 
 RUN \
     apt-get update && \
