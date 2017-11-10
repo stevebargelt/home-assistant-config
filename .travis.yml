@@ -11,6 +11,6 @@ before_install:
 notifications:
   slack:
     rooms:
-      - bargelt:r8ZuK4YKz8rPmOfPZ07pFF49#general
+      - secure: "BDGRufEGI9XBbmZJX7y10YfJGmz1J1zgxfmybO6/KLaqT2lCQ39Myp6PnmiuJQRFuIS0gndSy7L7MFaSRq+oe51r/M3ukUnKuIDFbU/gIXtYMqEx6KylJpo4o4DRJVfJRKXeifyj5JxabF82T4DDCIofprpq8xZH2zleGnUGJIZQQhyf0PD3L6E+bOPGBdMoIlVmC5fqr9aiOo4xfRSRLUmN+uJXRjj6Zf9O7DohxPYZqnxuK9Qzwtp5GMkmKZbv2omHreUKdVuXkJ0EuJ4+9+zzWVbMlk8Quk1LHC6wovvWm4lZoYmXG0AWuzu+cZIRSKe0oj49DVmH9f6BSkXb3wTwts47tXmTfQgTCT+/1Xf49F/B5bAnKQV3YX/hqdvqWN3oLtwz2MLJ98AsH4iP2AZrs7RK2VBlGrXJW8cPLL3xcPKUMh7t7kHkqXNkiQh4CJ06bGX50rIEMD741eUFmqF5BquEiSE5yrTHXmm+T3Ms9RH0j+YTDHs1msxDH0Urlju0OHbIKRKtWVQOv4beAoBxd56RoiVev+SbNh+Fj10cCuiGPnCHjxy8Wli0q1Y8XhSdOLa1JlrABfrnMfX9HG1RVG2J97F6Ii5ODudGKjqRBBbwwwRDFCHNL46bkC+wL52Y2/jMOJFpM4rlfgy+uLsyrlbhxoYlBXBJyizroAM="
     template:
       - "Status=%{result}, Job=%{repository_name}, Build=%{build_number}, URL=%{build_url}"
