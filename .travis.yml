@@ -1,16 +1,15 @@
 language: python
 python:
-  - "3.4"
+- '3.4'
 install:
-  #- pip3 install homeassistant
-  - pip3 install git+git://github.com/home-assistant/home-assistant.git
+- pip3 install git+git://github.com/home-assistant/home-assistant.git
 script:
-  - hass -c . --script check_config
+- hass -c . --script check_config
 before_install:
-  - mv travis_secrets.yaml secrets.yaml
+- mv travis_secrets.yaml secrets.yaml
 notifications:
   slack:
     rooms:
-      - secure: "BDGRufEGI9XBbmZJX7y10YfJGmz1J1zgxfmybO6/KLaqT2lCQ39Myp6PnmiuJQRFuIS0gndSy7L7MFaSRq+oe51r/M3ukUnKuIDFbU/gIXtYMqEx6KylJpo4o4DRJVfJRKXeifyj5JxabF82T4DDCIofprpq8xZH2zleGnUGJIZQQhyf0PD3L6E+bOPGBdMoIlVmC5fqr9aiOo4xfRSRLUmN+uJXRjj6Zf9O7DohxPYZqnxuK9Qzwtp5GMkmKZbv2omHreUKdVuXkJ0EuJ4+9+zzWVbMlk8Quk1LHC6wovvWm4lZoYmXG0AWuzu+cZIRSKe0oj49DVmH9f6BSkXb3wTwts47tXmTfQgTCT+/1Xf49F/B5bAnKQV3YX/hqdvqWN3oLtwz2MLJ98AsH4iP2AZrs7RK2VBlGrXJW8cPLL3xcPKUMh7t7kHkqXNkiQh4CJ06bGX50rIEMD741eUFmqF5BquEiSE5yrTHXmm+T3Ms9RH0j+YTDHs1msxDH0Urlju0OHbIKRKtWVQOv4beAoBxd56RoiVev+SbNh+Fj10cCuiGPnCHjxy8Wli0q1Y8XhSdOLa1JlrABfrnMfX9HG1RVG2J97F6Ii5ODudGKjqRBBbwwwRDFCHNL46bkC+wL52Y2/jMOJFpM4rlfgy+uLsyrlbhxoYlBXBJyizroAM="
+      secure: C3KgoTdjKDuN50EVC3EATUZuU/15gf/LBKQ209OfVo2WEtgP1BSKbdWlFuobBRwZ//hJHCZ4j0vLIbNs7Q439mMjCU4ALxHsYQAtK8ptBUb8IQRO/FyR3chm72+M5JSVtxg44Z3Fjj1d9SlX7yWVhJW9VTvbeRCVainXgJ5OLkqe9lcj8WwInvzTOCkZ3H6ck3wt3k9aWy6g7s4pO3gg6j2QS84F2+xGXqXvRqfBxxUZ+sAJK6zqBPkW7Iki66Nnzg6Fg7/dCUJRFtvo/43filGffq2IGdzz09ACrsZp6iaRKUcsGM0raX6y3ZHgKdrDmxbwivzdH/mlb7rye/+NxAT8y4dcuAN94xfwG06/2Yf2oiJPhICWXnO9dBYlbQpl9QsF7xF1tNHLJEAMwrxlymdXdk6vMxgG0X62uXsS8RmOHzYqfa55b8fkWYTTm0ENewHQaW+L1vdTbjzY3orwYYt7XPdVPOTDXXjoXsos25f6yPg/n4lpBB8GDMSquxmWbclMDu0AGarCQx3Wd4nEXogy6r7SvNlzqivgfkauehCltSBh7QImCuvs0B7h8hvr/Jj59WFyRNOK2C3YwiTR6Z/Drn5eQSRHY8+AOe98EF1rgLxA3n5MGIiTEYbPcHSJiKYIv7iIe1dYx08a/NRL+XP0HK/oPXD07/yXpFv8W3g=
     template:
-      - "Status=%{result}, Job=%{repository_name}, Build=%{build_number}, URL=%{build_url}"
+    - Status=%{result}, Job=%{repository_name}, Build=%{build_number}, URL=%{build_url}
