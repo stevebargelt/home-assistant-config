@@ -59,7 +59,7 @@ services:
     network_mode: "host"
 
   dasher:
-    build: ./dasher/.
+    image: stevebargelt/dasher-rpi
     volumes:
       - ./dasher/config:/usr/src/app/config 
     network_mode: "host"
