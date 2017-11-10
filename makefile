@@ -5,6 +5,7 @@ run:
 stop:
 	@docker-compose -p ha stop
 clean:	stop
-	@docker-compose -p ha rm master nginx #registry
+	@docker rm $(docker ps -a -q)
 clean-images:
 	@docker rmi 'docker images -q -f "dangling=true"'
+	
