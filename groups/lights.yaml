@@ -11,6 +11,7 @@ Kitchen Lights:
 Living Room Lights:
   entities:
     - switch.living_room_hanging_lamp_switch
+    - switch.living_room_lamp
 
 Dining Room Lights:
   entities:
