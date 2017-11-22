@@ -83,6 +83,14 @@ device_tracker:
 #####     TESTING AREA BELOW                      #####
 #######################################################
 
+binary_sensor:
+  - platform: mqtt
+    name: "Kitchen Motion Sensor"
+    state_topic: "ha/kitchenmotion"
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: motion
+
 #recorder:
   #purge_days: 1
   #db_url: !secret my_db
