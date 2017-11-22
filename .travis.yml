@@ -13,9 +13,4 @@ notifications:
       secure: VhM6ZExQQk39FyLKw/0uz6KSyJ+a//oBoPeTKehzBTs3fLbNxKS3x+BmvkvPXWtfrWw/MFTjaPBq/1iZT++CODJgqMuAFyhg04yhtD19NJSrNoYgfIX5BQ0PtjX9VOPVsNb/Kr6gZ21ZVChUpzSdISa/jrXZXu+6KvZNrqY0XwjZsVzmOOzr+FFMrTx9ik5p2fI8lp4Kj6a5LfoVuncM2daaoa71q78eMXAqUYsSFwAeu00a5x/QBkokowdImhoI+ffoxIV6C1Fkmb+Ct4YkXMoX7heu4vP0LHPLGpwtTI6NjCfshjTTXw3r+Tqow2yjtUJFGUu17VQPJAe+U0CTcMSJr7grh4FrAk730U5ZUktBxK3g3K3iwuRohTD2h9RhromuFRUgIYqUoYlgmMCwYZCqEOXWr+Ug9KwsuhH/F1fgOmQkPk5XGafnjU+AwcjRe9Vl1UkLZAM0HHxoue0f7XJ1lk5QkMpdqu2HWrUIa5rYZa/pMh0WkXtD2pzmes1S0/SV+IZxWBgYJU8whOTgiAudl/x++bDL2QX/kW4vAhLXS2S6l7m6nQNl3V8QcKPLUO9izQ3JEfZd0P7rxWl6pQ9AvJIjpuupJTzLtkxroeqofwwqTZlwtuIzFPSGI4ggCGaYObyxPklqAkWX8YBFdpnXiYCVTInc02qOTHV1jZY=
     template:
     - Status=%{result}, Job=%{repository_name}, Build=%{build_number}, URL=%{build_url}
-  webhooks: 
-    - https://webhookmqtt.azurewebsites.net/api/travisMQTT?code=bLydjI9wlj1oj4wTfDMSqiZxXkgIn7RaVJiYl4qR/MKjUCcb7/abIg==
-    - http://control.bargelt.com:5555
-
-  # &clientId=default
    
