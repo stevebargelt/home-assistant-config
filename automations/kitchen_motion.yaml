@@ -1,0 +1,20 @@
+- alias: Turn on kitchen accent light when there is movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor
+    to: 'on'
+  action:
+    service: scene.turn_on
+    entity_id: scene.kitchen_night_light
+
+- alias: Turn off kitchen light 10 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor
+    to: 'off'
+    for:
+      minutes: 10
+  action:
+    service: scene.turn_on
+    entity_id: scene.kitchen_lights_out
+
