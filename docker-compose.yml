@@ -71,5 +71,5 @@ services:
     ports:
       - "5050:5050"
     volumes:
-      - ./appdaemon/conf:/conf
+      - ./appdaemon:/conf
       - /etc/localtime:/etc/localtime:ro
