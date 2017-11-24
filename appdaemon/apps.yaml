@@ -3,7 +3,7 @@ hello_world:
   class: HelloWorld
 kitchen_motion_lights:
   module: motion_lights
-  class: MotionLight
+  class: MotionLights
   sensor: binary_sensor.kitchen_motion_sensor
   delay: 300
   entity_on: scene.kitchen_night_light
