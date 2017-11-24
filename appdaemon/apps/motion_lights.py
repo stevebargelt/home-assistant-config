@@ -1,5 +1,4 @@
 import appdaemon.appapi as appapi
-import globals
 
 # Args:
 #
