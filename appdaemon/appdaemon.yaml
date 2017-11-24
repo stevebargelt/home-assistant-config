@@ -1,0 +1,11 @@
+AppDaemon:
+  logfile: STDOUT
+  errorfile: STDERR
+  threads: 10
+HASS:
+  ha_url: !secret ha_full_url
+  ha_key: !secret api_password
+HADashboard:
+  dash_url: !secret dash_url
+  dash_password: !secret dash_password
+

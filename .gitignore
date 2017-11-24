@@ -30,4 +30,5 @@ mysqlpassword.txt
 .vscode
 .DS_Store
 /dasher/config
-appdaemon.yaml
+apps/__pycache__/
+.spotify-token-cache
