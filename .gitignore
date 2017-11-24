@@ -30,6 +30,3 @@ mysqlpassword.txt
 .vscode
 .DS_Store
 /dasher/config
-appdaemon/*
-!appdaemon/Dockerfile
-appdaemon/conf

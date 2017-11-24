@@ -1,0 +1,12 @@
+hello_world:
+  module: hello
+  class: HelloWorld
+kitchen_motion_lights:
+  module: motion_lights
+  class: MotionLight
+  sensor: binary_sensor.kitchen_motion_sensor
+  delay: 300
+  entity_on: scene.kitchen_night_light
+  entity_off: scene.kitchen_lights_out
+  constrain_start_time: 21:00:00
+  constrain_end_time: 08:00:00
