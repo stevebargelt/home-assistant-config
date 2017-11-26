@@ -15,7 +15,7 @@
   entities:
     light.kitchen_accent:
       state: on
-      brightness: 80
+      brightness: 128
       rgb_color:  [255, 172, 93]
 - name: Kitchen Bright White
   entities:
@@ -34,16 +34,31 @@
     light.kitchen_accent:
       state: on
       brightness: 80
-      rgb_color: [102, 0, 153]
-- name: Kitchen Fire
-  entities:
-    light.kitchen_accent:
-      state: on
-      transition: 1
-      effect: fire
+      rgb_color:  [255, 172, 93]
 - name: Kitchen Rainbow
   entities:
     light.kitchen_accent:
       state: on
-      transition: 1
-      effect: rainbow
+      transition: 5
+      effect: RAINBOW_CYCLE
+- name: Kitchen Theater Chase
+  entities:
+    light.kitchen_accent:
+      state: on
+      transition: 100
+      effect: THEATER_CHASE
+- name: Kitchen Red Scanner
+  entities:
+    light.kitchen_accent:
+      state: on
+      transition: 55
+      rgb_color:  [255, 0, 0]
+      effect: SCANNER
+- name: Kitchen Color Wipe
+  entities:
+    light.kitchen_accent:
+      state: on
+      transition: 3
+      brightness: 255
+      rgb_color:  [255, 172, 93]
+      effect: COLOR_WIPE

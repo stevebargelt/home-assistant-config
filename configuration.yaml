@@ -121,9 +121,9 @@ light:
     state_topic: "ha/kitchenaccent"
     command_topic: "ha/kitchenaccent/set"
     effect: true
-    effect_list: [fire, rainbow, solid]
+    effect_list: [RAINBOW_CYCLE, THEATER_CHASE, COLOR_WIPE, SCANNER, FADE]
     brightness: true
-    flash: true
+    flash: false
     rgb: true
     optimistic: false
     qos: 0
