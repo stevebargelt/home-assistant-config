@@ -51,7 +51,8 @@
   entities:
     light.kitchen_accent:
       state: on
-      transition: 55
+      transition: 15
+      brightness: 255
       rgb_color:  [255, 0, 0]
       effect: SCANNER
 - name: Kitchen Color Wipe
