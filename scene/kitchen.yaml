@@ -46,13 +46,14 @@
     light.kitchen_accent:
       state: on
       transition: 100
+      rgb_color:  [255, 172, 93]
       effect: THEATER_CHASE
 - name: Kitchen Red Scanner
   entities:
     light.kitchen_accent:
       state: on
       transition: 15
-      brightness: 255
+      brightness: 100
       rgb_color:  [255, 0, 0]
       effect: SCANNER
 - name: Kitchen Color Wipe
@@ -60,6 +61,14 @@
     light.kitchen_accent:
       state: on
       transition: 3
-      brightness: 255
+      brightness: 100
       rgb_color:  [255, 172, 93]
       effect: COLOR_WIPE
+- name: Kitchen Green Scanner
+  entities:
+    light.kitchen_accent:
+      state: on
+      transition: 15
+      brightness: 100
+      rgb_color:  [0, 255, 0]
+      effect: SCANNER
