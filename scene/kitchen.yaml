@@ -53,7 +53,6 @@
     light.kitchen_accent:
       state: on
       transition: 15
-      brightness: 100
       rgb_color:  [255, 0, 0]
       effect: SCANNER
 - name: Kitchen Color Wipe
@@ -61,7 +60,6 @@
     light.kitchen_accent:
       state: on
       transition: 3
-      brightness: 100
       rgb_color:  [255, 172, 93]
       effect: COLOR_WIPE
 - name: Kitchen Green Scanner
@@ -69,6 +67,5 @@
     light.kitchen_accent:
       state: on
       transition: 15
-      brightness: 100
       rgb_color:  [0, 255, 0]
       effect: SCANNER
