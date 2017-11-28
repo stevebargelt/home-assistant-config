@@ -32,3 +32,4 @@ mysqlpassword.txt
 /dasher/config
 appdaemon/apps/__pycache__/
 .spotify-token-cache
+secrets.h

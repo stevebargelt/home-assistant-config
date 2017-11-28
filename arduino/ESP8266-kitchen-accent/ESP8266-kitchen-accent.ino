@@ -12,12 +12,6 @@
 #define MOTION_PIN 0 // D3 on Node MCU ESP8266
 #define NUM_LEDS 200
 
-/************************** Networking Information *************************************/
-const char* ssid = "FBI Surveillance Van #2.4";
-const char* password = "BigBossWreckersWiFi";
-const char* mqtt_server = "192.168.1.5";
-const char* host_name = "esp8266-KitchenAccent";
-
 /************* MQTT TOPICS (change these topics as you wish)  **************************/
 const char* light_state_topic = "ha/kitchenaccent";
 const char* light_set_topic = "ha/kitchenaccent/set";
