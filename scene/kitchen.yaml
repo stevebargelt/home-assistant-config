@@ -64,3 +64,9 @@
       transition: 15
       rgb_color:  [0, 255, 0]
       effect: SCANNER
+- name: Kitchen Candy Cane
+  entities:
+    light.kitchen_accent:
+      state: on
+      transition: 50
+      effect: CANDY_CANE

@@ -121,7 +121,7 @@ light:
     state_topic: "ha/kitchenaccent"
     command_topic: "ha/kitchenaccent/set"
     effect: true
-    effect_list: [RAINBOW_CYCLE, THEATER_CHASE, COLOR_WIPE, SCANNER, FADE]
+    effect_list: [RAINBOW_CYCLE, THEATER_CHASE, COLOR_WIPE, SCANNER, FADE, CANDY_CANE]
     brightness: false
     flash: false
     rgb: true
