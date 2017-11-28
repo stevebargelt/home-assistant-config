@@ -9,32 +9,27 @@
   entities:
     light.kitchen_accent:
       state: on
-      brightness: 255
       rgb_color:  [255, 172, 93]
 - name: Kitchen Dim
   entities:
     light.kitchen_accent:
       state: on
-      brightness: 128
-      rgb_color:  [255, 172, 93]
+      rgb_color:  [128, 86, 47]
 - name: Kitchen Bright White
   entities:
     light.kitchen_accent:
       state: on
-      brightness: 255
       rgb_color:  [255, 255, 255]
 - name: Kitchen Maggie Color
   entities:
     light.kitchen_accent:
       state: on
-      brightness: 255
       rgb_color:  [102, 0, 153]
 - name: Kitchen Night Light
   entities:
     light.kitchen_accent:
       state: on
-      brightness: 80
-      rgb_color:  [255, 172, 93]
+      rgb_color:  [80, 54, 29]
 - name: Kitchen Rainbow
   entities:
     light.kitchen_accent:
