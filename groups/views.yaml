@@ -23,26 +23,6 @@ Master Bedroom:
     - group.master_bedroom_lights
     - media_player.spotify
 
-Kitchen:
-  view: yes
-  icon: mdi:fridge
-  entities:
-    - group.kitchen.lights
-    - switch.water_kettle
-
-Office:
-  view: yes
-  icon: mdi:chair-school
-  entities:
-    - group.office.lights
-    - media_player.office_chromecast
-
-Holiday:
-  view: yes
-  icon: mdi:pine-tree
-  entities:
-    - scene.kitchen.candy_cane
-
 Info:
   view: yes
   icon: mdi:settings
