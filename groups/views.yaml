@@ -14,6 +14,12 @@ Living Room:
   entities:
     - group.living_room_lights
     - media_player.spotify
+Master Bedroom:
+  view: yes
+  icon: mdi:hotel
+  entites:
+    - group.master_bedroom_lights
+    - media_player.spotify
 Info:
   view: yes
   icon: mdi:settings
