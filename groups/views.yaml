@@ -20,6 +20,12 @@ Master Bedroom:
   entites:
     - group.master_bedroom_lights
     - media_player.spotify
+Kitchen:
+  view: yes
+  icon: mdi:stove
+  entities:
+    - group.kitchen.lights
+    - switch.water_kettle
 Info:
   view: yes
   icon: mdi:settings
