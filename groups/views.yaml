@@ -25,7 +25,7 @@ Master Bedroom:
 
 Kitchen:
   view: yes
-  icon: mdi:stove
+  icon: mdi:fridge
   entities:
     - group.kitchen.lights
     - switch.water_kettle
