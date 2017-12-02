@@ -8,21 +8,12 @@ Bargelt Home View:
     - group.home_modes
     - group.interior_lights
     - switch.water_kettle
-
 Living Room: 
   view: yes
   icon: mdi:sofa
   entities:
     - group.living_room_lights
     - media_player.spotify
-
-Master Bedroom:
-  view: yes
-  icon: mdi:hotel
-  entites:
-    - group.master_bedroom_lights
-    - media_player.spotify
-
 Info:
   view: yes
   icon: mdi:settings
