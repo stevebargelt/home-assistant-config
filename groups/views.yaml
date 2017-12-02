@@ -14,23 +14,15 @@ living:
   entities:
     - group.living_room_lights
     - media_player.spotify
-beded:
+bed:
   view: yes
   icon: mdi:hotel
   entites:
     - group.master_bedroom_lights
     - media_player.spotify
-kitch:
+kitchen:
   view: yes
-  icon: mdi:stove
+  icon: mdi:fridge
   entities:
     - group.kitchen.lights
-info:
-  view: yes
-  icon: mdi:settings
-  entities:
-    - group.family_home
-    - group.home_modes
-    - group.network
-    - group.weather
-    - group.links
+
