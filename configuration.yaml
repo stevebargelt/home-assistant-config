@@ -91,10 +91,6 @@ binary_sensor:
     payload_off: "OFF"
     device_class: motion
 
-#recorder:
-  #purge_days: 1
-  #db_url: !secret my_db
-
 # panel_iframe:
 #   download:
 #     title: 'Download Speed'
@@ -128,11 +124,4 @@ light:
     optimistic: false
     qos: 0
 
-# input_slider:
-#   kitchen_animation_speed:
-#     name: Kitchen Animation Speed
-#     initial: 150
-#     min: 1
-#     max: 150
-#     step: 10
 
