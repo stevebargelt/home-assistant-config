@@ -65,7 +65,7 @@ fi
 
 header "Pulling Latest RPi Home Assistant" 6
 
-if $DOCKER pull homeassistant/raspberrypi-homeassistant then
+if $DOCKER pull homeassistant/raspberrypi-homeassistant; then
   header "Pulled RPi Home Assistant" 2 
 else
   header "Failed to pull RPi Home Assistant" 1
@@ -75,7 +75,7 @@ fi
 
 header "Starting Home Assistant" 6
 
-if $DOCKERCOMPOSE -p ha up -d then
+if $DOCKERCOMPOSE -p ha up -d; then
   header "Started Home Assistant" 2
 else
   header "Failed to start Home Assistant" 1
