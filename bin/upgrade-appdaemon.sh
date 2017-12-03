@@ -2,6 +2,7 @@
 
 NAME="appdaemon"
 PROJECT="ha"
+IMAGE="stevebargelt/appdaemon-rpi"
 
 ########## header(text, colour) - echo text in colour, if colour is not set use red
 #
@@ -63,22 +64,22 @@ else
 fi
 
 
-header "Pulling Latest RPi Home Assistant" 6
+header "Pulling Latest Image" 6
 
-if $DOCKER pull stevebargelt/appdaemon-rpi; then
-  header "Pulled RPi Appdaemon" 2 
+if $DOCKER pull $IMAGE; then
+  header "Pulled image" 2 
 else
-  header "Failed to pull RPi AppDaemon" 1
+  header "Failed to image" 1
   exit 1
 fi
 
 
-header "Starting Appdaemon" 6
+header "Starting Project" 6
 
-if $DOCKERCOMPOSE -p ha up -d; then
-  header "Started AppDaemon" 2
+if $DOCKERCOMPOSE -p $PROJECT up -d; then
+  header "Started Project" 2
 else
-  header "Failed to start Appdaemon" 1
+  header "Failed to start Project" 1
   exit 1
 fi
 
