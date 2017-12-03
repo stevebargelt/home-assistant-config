@@ -1,14 +1,103 @@
 #
 # Main arguments, all optional
 #
-title: Hello Panel
-widget_dimensions: [120, 120]
+title: Main Panel
+widget_dimensions: [122, 120]
 widget_margins: [5, 5]
 columns: 8
 
-label:
-    widget_type: label
-    text: Hello World
-    
 layout:
-    - label(2x2)
+    - clock(2x1),                   weather_widget(2x2),                    media_player.spotify(2x2),      all_off(2x1)
+    - mode(2x1),                                                                                            all_off(2x1) 
+    - mlamp_light, slamp_switch,    ka_night_scene, ka_candy_cane_scene,    ko_switch 
+    - lr_hanging_switch, lr_standing_lamp, of_standing_lamp
+    - load_main_panel, load_office_panel,load_controls,        reload
+    
+
+weather_widget:
+    widget_type: weather
+    units: "&deg;F"
+
+clock:
+    widget_type: clock
+
+mode:
+    widget_type: sensor
+    title: House Mode
+    entity: input_select.home_modes
+
+mlamp_light:
+    widget_type: light
+    title: Maggie's Lamp
+    entity: light.maggie_lamp_level
+    icon_on: mdi-lamp
+    icon_off: mdi-lamp
+
+slamp_switch:
+    widget_type: switch
+    title: Steve's Lamp
+    entity: switch.steve_lamp_switch
+    icon_on: mdi-lamp
+    icon_off: mdi-lamp
+
+ko_switch:
+    widget_type: switch
+    title: Kitchen Overhead
+    entity: switch.kitchen_overhead
+
+ka_night_scene:
+    widget_type: scene
+    title: Kitchen Accent Nightlight
+    entity: scene.kitchen_night_light
+
+ka_candy_cane_scene:
+    widget_type: scene
+    title: Kitchen Accent Candy Cane
+    entity: scene.kitchen_candy_cane
+
+lr_hanging_switch:
+    widget_type: switch
+    title: Living Room Hanging Lamp
+    entity: switch.living_room_hanging_lamp_switch
+
+lr_standing_lamp:
+    widget_type: switch
+    title: Living Room Lamp
+    entity: switch.living_room_lamp
+
+of_standing_lamp:
+    widget_type: switch
+    title: Office Lamp
+    entity: switch.office_lamp_switch
+
+all_off:
+    widget_type: script
+    title: All Off
+    entity: script.interior_off
+
+load_main_panel:
+    widget_type: navigate
+    title: Main Panel
+    icon: fa-home
+    url: /MainPanel
+    #background_color: "#00f"
+    #icon_color: green
+    #icon_size: 200%
+    #title_color: red
+    #title_size: 200%
+
+load_office_panel:
+    widget_type: navigate
+    title: Office Panel
+    icon: fa-windows
+    url: /OfficePanel
+
+load_controls:
+    widget_type: navigate
+    title: Controls
+    icon: fa-dashboard
+    url: /Controls
+    
+reload:
+    widget_type: reload
+    title: Reload
