@@ -30,6 +30,12 @@ Office:
     - group.office_lights
     - media_player.office_chromecast
 
+Bedroom:
+  view: yes
+  icon: mdi:hotel
+  entities: 
+    - group.master_bedroom_lights
+
 Holiday:
   view: yes
   icon: mdi:pine-tree
@@ -45,3 +51,4 @@ Info:
     - group.network
     - group.weather
     - group.links
+
