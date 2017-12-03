@@ -34,7 +34,7 @@ Holiday:
   view: yes
   icon: mdi:pine-tree
   entities:
-    - scene.kitchen.candy_cane
+    - scene.kitchen_candy_cane
 
 Info:
   view: yes
