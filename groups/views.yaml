@@ -9,6 +9,27 @@ Bargelt Home View:
     - group.interior_lights
     - switch.water_kettle
 
+Living: 
+  view: yes
+  icon: mdi:sofa
+  entities:
+    - group.living_room_lights
+    - media_player.spotify
+
+Kitchen:
+  view: yes
+  icon: mdi:fridge
+  entities:
+    - group.kitchen_lights
+    - switch.water_kettle
+
+Office:
+  view: yes
+  icon: mdi:chair-school
+  entities:
+    - group.office_lights
+    - media_player.office_chromecast
+
 Info:
   view: yes
   icon: mdi:settings
@@ -18,18 +39,3 @@ Info:
     - group.network
     - group.weather
     - group.links
-
-Living: 
-  view: yes
-  icon: mdi:sofa
-  entities:
-    - group.living_room_lights
-    - media_player.spotify
-
-Bedroom:
-  view: yes
-  icon: mdi:hotel
-  entites:
-    - group.master_bedroom_lights
-    - media_player.spotify
-
