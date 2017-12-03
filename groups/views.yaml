@@ -26,3 +26,10 @@ Living:
     - group.living_room_lights
     - media_player.spotify
 
+Bedroom:
+  view: yes
+  icon: mdi:hotel
+  entites:
+    - group.master_bedroom_lights
+    - media_player.spotify
+
