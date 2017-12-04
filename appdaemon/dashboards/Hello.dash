@@ -47,8 +47,10 @@ guest_mode:
 
 notify: 
     widget_type: input_boolean
-    title: house Notify
-    entity: input_boolean.guest_mode
+    title: Repeat Message
+    icon_on: mdi:repeat-once
+    icon_off: mdi:repeat-once
+    entity: input_boolean.last_message
 
 mlamp_light:
     widget_type: light
