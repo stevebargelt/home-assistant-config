@@ -7,9 +7,9 @@
     - platform: state
       entity_id:
         - group.family_home
-      from: 'on'
-      to: 'home'
-      for: '00:10:00'
+      from: 'off'
+      to: 'on'
+      for: '00:05:00'
 
     - platform: state
       entity_id: input_boolean.home_stats
@@ -22,4 +22,8 @@
         - input_boolean.outside_weather
         - input_boolean.lights_status
 
-    - service: script.Voice_notify
+    - service: script.speech_engine
+      data:
+        call_responsibilities: 1
+        call_outside_weather: 1
+        call_light_check: 1  

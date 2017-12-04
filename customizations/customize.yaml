@@ -73,6 +73,7 @@ switch.office_lamp_switch:
 
 switch.mqtt_switch:
   friendly_name: "Water Kettle"
+  icon: mdi:kettle
   emulated_hue: True
   hidden: False
 
