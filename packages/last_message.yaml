@@ -15,6 +15,7 @@ sensor:
   - platform: mqtt
     state_topic: "polly/lastmsg"
     name: "Last Message"
+
 ##############################################################################
 ###  Automations -
 ##############################################################################
@@ -30,9 +31,7 @@ automation:
     action:
       - service: tts.amazon_polly_say
         entity_id:
-          - media_player.livingroomCC
-          - media_player.entry_alarm_panel
-          - media_player.bedroom_alarm_panel
+          - media_player.office_chromecast
         data_template:
           message: >
             <speak>

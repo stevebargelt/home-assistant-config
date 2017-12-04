@@ -11,7 +11,7 @@
 
   # condition:
   #   - condition: state
-  #     entity_id: group.family
+  #     entity_id: group.family_home
   #     state: 'on'
 
   action:

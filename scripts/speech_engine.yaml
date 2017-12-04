@@ -16,7 +16,7 @@ speech_engine:
     - condition: or
       conditions:
         - condition: state
-          entity_id: group.family
+          entity_id: group.family_home
           state: 'on'
         - condition: state
           entity_id: input_boolean.guest_mode
