@@ -25,14 +25,6 @@ speech_engine:
     - service: script.speech_processing
       data_template:
         speech_message: >
-          # {%- macro dark_outside() -%}
-          #     {{ [
-          #     "It is pretty dark outside.  I will turn on the outside lights now.",
-          #     "It is a little past Sunset. Time to turn on the outside lights. I am on it.",
-          #     "I will switch on the outside lights.  It is getting dark outside.",
-          #     "Time to turn on the front lights. I will take care of it."
-          #     ] | random }}
-          # {%- endmacro -%}
           {%- macro responsibilities() -%}
               {% if now().strftime("%j")|int % 2 != 0 %}
                 Today is Steve's day to do the chores.
