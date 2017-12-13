@@ -48,8 +48,8 @@ guest_mode:
 notify: 
     widget_type: input_boolean
     title: Repeat Message
-    icon_on: mdi:repeat-once
-    icon_off: mdi:repeat-once
+    icon_on: mdi-repeat-once
+    icon_off: mdi-repeat-once
     entity: input_boolean.last_message
 
 mlamp_light:
