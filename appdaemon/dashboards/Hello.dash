@@ -7,10 +7,10 @@ widget_margins: [5, 5]
 columns: 8
 
 layout:
-    - clock(2x1),                   weather_widget(2x2),                    media_player.spotify(2x2), steve_presence, maggie_presence
+    - clock(2x1),                           weather_widget(2x2),                    media_player.spotify(2x2), steve_presence, maggie_presence
     - all_off(2x1),                                                                                    guest_mode,     notify  
-    - mlamp_light, slamp_switch,    ka_night_scene, ka_candy_cane_scene,    ko_switch, dr_light
-    - lr_hanging_switch, lr_standing_lamp, of_standing_lamp
+    - mlamp_light, slamp_switch,            ka_night_scene, ka_candy_cane_scene,    ka_lights_out, ko_switch
+    - lr_hanging_switch, lr_standing_lamp,  dr_light,  of_standing_lamp
     - load_main_panel, load_office_panel,load_controls,        reload
     
 
@@ -77,6 +77,11 @@ ka_night_scene:
     widget_type: scene
     title: Kitchen Accent Nightlight
     entity: scene.kitchen_night_light
+
+ka_lights_out:
+    widget_type: scene
+    title: Kitchen Accent Off
+    entity: scene.kitchen_lights_out
 
 ka_candy_cane_scene:
     widget_type: scene
