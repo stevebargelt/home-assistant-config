@@ -10,12 +10,6 @@ input_boolean.good_night:
   hidden: False
   icon: mdi:weather-night
 
-input_boolean.guest_mode:
-  friendly_name: 'Guest Mode'
-  emulated_hue: True
-  hidden: False
-  icon: mdi:account-alert
-
 input_boolean.home_stats:
   friendly_name: 'Home Stats'
   emulated_hue: True
@@ -33,9 +27,3 @@ input_boolean.speech_notifications:
   emulated_hue: True
   hidden: False
   icon: mdi:speaker-wireless
-
-input_boolean.work:
-  friendly_name: 'Work'
-  emulated_hue: True
-  hidden: False
-  icon: mdi:briefcase

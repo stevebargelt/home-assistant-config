@@ -76,11 +76,6 @@ influxdb:
     instance: prod
     source: ha
 
-device_tracker:
-  - platform: owntracks
-    max_gps_accuracy: 200
-
-
 #######################################################
 #####     TESTING AREA BELOW                      #####
 #######################################################
@@ -93,22 +88,10 @@ binary_sensor:
     payload_off: "OFF"
     device_class: motion
 
-# panel_iframe:
-#   download:
-#     title: 'Download Speed'
-#     url: !secret grafanadownload
-#   upload:
-#     title: 'Upload Speed'
-#     url: !secret grafanaupload
-
 tts:
-  - platform: amazon_polly
-    aws_access_key_id: !secret aws_access_key_id 
-    aws_secret_access_key: !secret aws_secret_access_key
-    region_name: 'us-east-1'
-    voice: 'Salli'
+  - platform: google
 
-media_player:
+  media_player:
   - platform: spotify
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret

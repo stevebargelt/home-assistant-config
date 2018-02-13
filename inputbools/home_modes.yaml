@@ -1,13 +1,3 @@
-guest_mode:
-  name: Guest Mode
-  icon: mdi:account-alert
-  initial: off
-
-wfh_mode:
-  name: WFH Mode
-  icon: mdi:account-alert
-  initial: off
-
 alert_mode:
   name: Alert Mode
   icon: mdi:alert-octagram

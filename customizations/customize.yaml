@@ -32,25 +32,6 @@ device_tracker.macbookpro:
   emulated_hue: False
   hidden: True
 
-device_tracker.margarets_iphone:
-  friendly_name: "Maggie's iPhone"
-  emulated_hue: False
-  hidden: False
-
-device_tracker.steveiphone:
-  friendly_name: "Steve's iPhone"
-  emulated_hue: False
-  hidden: False
-
-device_tracker.owntracksuser_steveiphone:
-  friendly_name: "Steve"
-  emulated_hue: False
-  hidden: False
-
-device_tracker.owntracksuser_maggieiphone:
-  friendly_name: "Maggie"
-  emulated_hue: False
-  hidden: False
 
 #######################################################
 #####      Switches                               #####
