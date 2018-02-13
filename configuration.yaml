@@ -89,7 +89,8 @@ binary_sensor:
     device_class: motion
 
 tts:
-  - platform: google
+  - platform: microsoft
+    api_key: !secret microsoft_speech_api_key
 
   media_player:
   - platform: spotify
