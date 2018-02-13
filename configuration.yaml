@@ -88,11 +88,13 @@ binary_sensor:
     payload_off: "OFF"
     device_class: motion
 
+
+
 tts:
   - platform: microsoft
     api_key: !secret microsoft_speech_api_key
 
-  media_player:
+media_player:
   - platform: spotify
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret
