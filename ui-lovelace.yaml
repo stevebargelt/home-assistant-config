@@ -1,0 +1,90 @@
+title: Home
+views:
+  - badges:
+      - person.maggie
+      - person.steve
+      - person.zoe
+      - device_tracker.xboxone
+      - device_tracker.steves_mbp
+      - device_tracker.steves_x
+      - device_tracker.steves_mbp_2
+      - device_tracker.zoeroomappletv
+      - device_tracker.margaretsiphone
+      - device_tracker.pse_iphone_x
+      - device_tracker.steves_mac_pro
+      - device_tracker.steves_pse_mbp
+      - device_tracker.zoes_iphone
+      - sensor.steves_x_battery_level
+      - sensor.steves_x_battery_state
+      - sun.sun
+    cards:
+      - entities:
+          - input_boolean.steve_home
+          - input_boolean.house_guests
+          - input_boolean.maggie_home
+          - input_boolean.zoe_home
+          - input_boolean.home_occupied
+          - input_boolean.exterior_alarm
+        title: Input boolean
+        type: entities
+      - entities:
+          - switch.maggie_lamp
+          - switch.steve_lamp          
+          - switch.office_lamp
+        title: Switch
+        type: entities
+      # - entities:
+      #     - updater.updater
+      #   title: Updater
+      #   state_filter:
+      #     - home
+      #   type: entity-filter
+      - entities:
+          - name: UniFi Controller / Router
+            type: weblink
+            url: !secret weblink_router
+          - name: Grafana
+            type: weblink
+            url: !secret weblink_grafana
+          - name: Media Server Plex
+            type: weblink
+            url: !secret weblink_plex_server
+        title: Weblink
+        type: entities
+    path: default_view
+    title: Home
+  - badges: []
+    cards:
+      - entities:
+          - entity: device_tracker.steves_x
+          - entity: switch.office_lamp
+        show_header_toggle: true
+        title: Hubby Office
+        type: entities
+      - card:
+          show_name: false
+          show_state: false
+          title: Who Is Home?
+          type: glance
+        entities:
+          - device_tracker.steves_x
+          - device_tracker.margaretsiphone
+          - device_tracker.zoes_iphone
+        state_filter:
+          - home
+        type: entity-filter
+      - type: history-graph
+        hours_to_show: 168
+        refresh_interval: 3600
+        entities:
+          - entity: sensor.deity
+            name: Deity
+          - entity: sensor.pinkwolf300
+            name: Zoe
+      - type: weather-forecast
+        entity: weather.dark_sky
+      - type: media-control
+        entity: media_player.hubby_office
+    panel: false
+    title: Test
+

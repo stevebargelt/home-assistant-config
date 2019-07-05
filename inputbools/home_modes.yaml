@@ -1,14 +1,26 @@
-alert_mode:
-  name: Alert Mode
-  icon: mdi:alert-octagram
-  initial: off 
-    
-speech_notifications:
-  name: Speech Notifications
-  icon: mdi:speaker-wireless
-  initial: on 
+home_occupied:
+  name: Home Occupied
+  icon: mdi:people
 
-last_message:
-  name: Last Notification
-  icon: mdi:repeat-once
-  initial: off
+exterior_alarm:
+  name: Exterior Alarm
+  icon: mdi:alarm_on
+
+sleep_mode:
+  name: Sleep Mode
+  icon: mdi:sleep
+
+# alert_mode:
+#   name: Alert Mode
+#   icon: mdi:alert-octagram
+#   initial: off 
+    
+# speech_notifications:
+#   name: Speech Notifications
+#   icon: mdi:speaker-wireless
+#   initial: on 
+
+# last_message:
+#   name: Last Notification
+#   icon: mdi:repeat-once
+#   initial: off

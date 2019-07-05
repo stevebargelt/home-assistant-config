@@ -1,9 +1,20 @@
-stevehome:
+steve_home:
   name: Steve Home
-  initial: on
+  initial: off
   icon: mdi:cellphone-iphone
-
-maggiehome:
+maggie_home:
   name: Maggie Home
-  initial: on
+  initial: off
   icon: mdi:cellphone-iphone
+zoe_home:
+  name: Zoe Home
+  initial: off
+  icon: mdi:cellphone-iphone
+house_guests:
+  name: House Guests
+  initial: off
+  icon: mdi:plane
+wfh:
+  name: Working From Home
+  initial: off
+  icon: mdi:laptop

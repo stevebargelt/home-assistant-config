@@ -1,75 +1,61 @@
-version: '3.1'
+version: '3.7'
 services:
-  mqtt-ext:
-    image: stevebargelt/mosquitto-rpi
-    restart: always
-    ports: 
-      - "8083:8083"
-      - "8883:8883"
-    volumes:
-        - /etc/letsencrypt:/etc/letsencrypt
-        - /home/pi/homeassistant/mosquitto-ext.conf:/mosquitto/config/mosquitto.conf
-        - /etc/ssl/certs/DST_Root_CA_X3.pem:/mosquitto/DST_Root_CA_X3.pem
-        - /home/pi/homeassistant/pwfile:/etc/mosquitto/pwfile
-        - /mosquitto/data
-        - /mosquitto/log
   mqtt-int:
-    image: stevebargelt/mosquitto-rpi
+    image: eclipse-mosquitto
     restart: always
-    depends_on:
-      - mqtt-ext
     ports: 
       - "1883:1883"
     volumes:
-        - /home/pi/homeassistant/mosquitto-int.conf:/mosquitto/config/mosquitto.conf
-        - /etc/ssl/certs/DST_Root_CA_X3.pem:/mosquitto/DST_Root_CA_X3.pem
-        - /mosquitto/data 
-        - /mosquitto/log
-
+        - /Users/steve/ha/home-assistant-config/mosquitto-int.conf:/mosquitto/config/mosquitto.conf
+        - /Users/steve/ha/mosquitto/data
+        - /Users/steve/ha/mosquitto/log
   influxdb:
-    image: hypriot/rpi-influxdb
+    image: influxdb
     restart: always
     ports:
       - "8086:8086"
     volumes:
       #- /home/pi/influxdb:/var/lib/influxdb
-      - /home/pi/influxdb:/data
+      - /Users/steve/ha/influxdb:/data
   grafana:
-    image: pithings/rpi-grafana
+    image: grafana/grafana
     restart: always 
     depends_on:
       - influxdb
     ports:
       - "3000:3000"
     volumes: 
-      - /home/pi/grafana:/var/lib/grafana
-
+      - /Users/steve/ha/grafana:/var/lib/grafana
+  
   home-assistant:
-    image: homeassistant/raspberrypi3-homeassistant
+    image: homeassistant/home-assistant
     restart: always
     depends_on:
       - mqtt-int
       - influxdb
+    environment:
+      - TZ=America/Los_Angeles
+    ports:
+      - "8123:8123"
+      - "8300:8300"
     volumes:
-      - /etc/letsencrypt:/etc/letsencrypt
-      - /home/pi/homeassistant:/config
-      - /etc/localtime:/etc/localtime:ro
-    devices:
-      - "/dev/ttyUSB0:/zwaveusbstick:rwm"
-    network_mode: "host"
+      - /Users/steve/ha/letsencrypt:/etc/letsencrypt
+      - /Users/steve/ha/home-assistant-config:/config
 
-  dasher:
-    image: stevebargelt/dasher-rpi
-    volumes:
-      - ./dasher/config:/usr/src/app/config 
-    network_mode: "host"
-    restart: always
-
-  appdaemon:
-    image: stevebargelt/appdaemon-rpi
+  node-red:
+    image: nodered/node-red-docker
     restart: always
     ports:
-      - "5050:5050"
-    volumes:
-      - ./appdaemon:/conf
-      - /etc/localtime:/etc/localtime:ro
+      - "1880:1880"
+    volumes: 
+      - /Users/steve/ha/node-red-data:/data
+  # dasher:
+  #   image: nekmo/amazon-dash:latest  
+  #   volumes:
+  #     - /Users/steve/ha/dasher/config:/usr/src/app/config
+  #   entrypoint:
+  #     - amazon-dash run 
+  #     - --ignore-perms 
+  #     - --root-allowed
+  #     - --config /config/amazon-dash.yml
+

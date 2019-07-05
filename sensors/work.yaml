@@ -1,0 +1,35 @@
+- platform: history_stats
+  name: Work Week Steve Bothell
+  entity_id: device_tracker.steves_x
+  state: 'Steve Work Bothell'
+  type: time
+  end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  duration: 
+    days: 8
+
+- platform: history_stats
+  name: Work Week Steve Bellevue
+  entity_id: device_tracker.steves_x
+  state: 'Steve Work Bellevue'
+  type: time
+  end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  duration: 
+    days: 8
+
+- platform: history_stats
+  name: Work Month Steve Bothell
+  entity_id: device_tracker.steves_x
+  state: 'Steve Work Bothell'
+  type: time
+  end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  duration: 
+    days: 30
+
+- platform: history_stats
+  name: Work Month Steve Bellevue
+  entity_id: device_tracker.steves_x
+  state: 'Steve Work Bellevue'
+  type: time
+  end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  duration: 
+    days: 30

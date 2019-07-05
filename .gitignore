@@ -31,5 +31,10 @@ mysqlpassword.txt
 .DS_Store
 /dasher/config
 appdaemon/apps/__pycache__/
+custom_components/alexa_media/__pycache__/
+
 .spotify-token-cache
 secrets.h
+.storage
+.cloud
+*.pickle

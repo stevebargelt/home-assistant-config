@@ -1,71 +1,82 @@
 homeassistant:
-  name: Bargelt Home
-  latitude: !secret latitude
-  longitude: !secret longitude
-  elevation: 273
-  unit_system: imperial
-  time_zone: America/Chicago
-  customize: !include_dir_merge_named customizations
+  auth_providers:
+    - type: homeassistant
+    - type: legacy_api_password
+      api_password: !secret api_password
 
-  packages: !include_dir_named packages
+#default_config:
+automation:
+config:
+frontend:
+history:
+logbook:
+map:
+mobile_app:
+person:
+script:
+sun:
+system_health:
+# updater:
+zeroconf:
 
-zone:
-  name: home
-  latitude: !secret latitude
-  longitude: !secret longitude
-  radius: 200
-  icon: mdi:home
+lovelace:
+  mode: yaml
+
+emulated_hue:
+
+wemo:
+  static:
+    - 10.0.0.196
 
 http:
-  api_password: !secret api_password
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
   login_attempts_threshold: 3
   base_url: !secret externaldomain
 
-frontend:
-config:
-updater:
-discovery:
-# history:
-# logbook:
-sun:
-wemo:
-ios:
-logger:
-  default: warn
-
-zwave:
-  usb_path: /zwaveusbstick
-
-emulated_hue:
-  type: alexa
-
-ifttt:
-  key: !secret ifttt_key
-
-sensor: !include_dir_merge_list sensors
-automation: !include_dir_merge_list automations
-script: !include_dir_merge_named scripts
-input_boolean: !include_dir_merge_named inputbools
-input_select: !include_dir_merge_named inputselects
-group: !include_dir_merge_named groups
-scene: !include_dir_merge_list scene
-weblink: !include includes/weblinks.yaml
-
 mqtt:
   broker: !secret ipaddress
 
-switch:
-  - platform: mqtt
-    name: "Water Kettle"
-    state_topic: "ha/waterkettle"
-    command_topic: "ha/waterkettle"
-    qos: 0
-    payload_on: "ON"
-    payload_off: "OFF"
-    optimistic:
-    false retain: true
+device_tracker:
+  - platform: unifi
+    host: !secret router_ipaddress
+    username: !secret unifi_controller_username
+    password: !secret unifi_controller_password
+    verify_ssl: false
+    ssid_filter:
+      - 'NSA Surveillance #22'
+
+input_boolean: !include_dir_merge_named inputbools
+weblink: !include includes/weblinks.yaml
+
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: 1
+  platform: smart_life
+
+  
+ios:
+  push:
+    categories:
+      - name: Alarm
+        identifier: 'alarm'
+        actions:
+          - identifier: 'SILENCE_ALARM'
+            title: 'Silence Alarm'
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: yes
+            behavior: 'default'
+      - name: Siren
+        identifier: 'siren'
+        actions:
+          - identifier: 'ACTIVATE_SIRENS'
+            title: 'Activate Sirens'
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: yes
+            behavior: 'default' 
 
 influxdb:
   host: !secret ipaddress
@@ -76,40 +87,36 @@ influxdb:
     instance: prod
     source: ha
 
+sensor: !include_dir_merge_list sensors
+
+zone:
+  - name: Steve Work Bothell
+    latitude: 47.774100
+    longitude: -122.181513
+    radius: 250
+  - name: Steve Work Bellevue
+    latitude: 47.613516
+    longitude: -122.194069
+    radius: 100
+
 #######################################################
 #####     TESTING AREA BELOW                      #####
 #######################################################
 
-binary_sensor:
-  - platform: mqtt
-    name: "Kitchen Motion Sensor"
-    state_topic: "ha/kitchenmotion"
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: motion
+weather:
+- platform: darksky
+  api_key: !secret darksky_key
 
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.com
+      exclude_devices:
+       - "Steve's Alexa Apps"
+       - "Steve's 2nd Fire"
+       - "Steve's Fire"
 
-
-tts:
-  - platform: microsoft
-    api_key: !secret microsoft_speech_api_key
-
-media_player:
-  - platform: spotify
-    client_id: !secret spotify_client_id
-    client_secret: !secret spotify_client_secret
-
-light:
-  - platform: mqtt_json
-    name: "Kitchen Accent"
-    state_topic: "ha/kitchenaccent"
-    command_topic: "ha/kitchenaccent/set"
-    effect: true
-    effect_list: [RAINBOW_CYCLE, THEATER_CHASE, COLOR_WIPE, SCANNER, FADE, CANDY_CANE]
-    brightness: false
-    flash: false
-    rgb: true
-    optimistic: false
-    qos: 0
-
-
+notify:
+  - platform: alexa_media
+    name: alexa_media

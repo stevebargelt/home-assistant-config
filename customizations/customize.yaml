@@ -12,11 +12,6 @@ device_tracker.amazon_dot_master_bath:
   emulated_hue: False
   hidden: True
 
-device_tracker.routerasuscom:
-  friendly_name: "ASUS Router"
-  emulated_hue: False
-  hidden: True
-
 device_tracker.withings_scale:
   friendly_name: "Withings Scale"
   emulated_hue: False
