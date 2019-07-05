@@ -27,7 +27,6 @@ plex.conf
 mysqlrootpassword.txt
 mysqlpassword.txt
 /mysql
-.vscode
 .DS_Store
 /dasher/config
 appdaemon/apps/__pycache__/
