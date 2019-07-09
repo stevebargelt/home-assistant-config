@@ -27,3 +27,4 @@ docker run -it --network=host \
              nekmo/amazon-dash:latest \
              amazon-dash run --ignore-perms --root-allowed \
                              --config /config/amazon-dash.yml
+
