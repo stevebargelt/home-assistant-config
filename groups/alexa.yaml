@@ -1,0 +1,5 @@
+Alexa Media Players:
+  entities:
+    - media_player.living_space
+    - media_player.maggie_s_dot
+    - media_player.hubby_office

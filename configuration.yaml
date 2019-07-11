@@ -37,6 +37,10 @@ http:
 mqtt:
   broker: !secret ipaddress
 
+weather:
+- platform: darksky
+  api_key: !secret darksky_key
+
 device_tracker:
   - platform: unifi
     host: !secret router_ipaddress
@@ -48,6 +52,8 @@ device_tracker:
 
 input_boolean: !include_dir_merge_named inputbools
 weblink: !include includes/weblinks.yaml
+group: !include_dir_merge_named groups
+sensor: !include_dir_merge_list sensors
 
 tuya:
   username: !secret tuya_username
@@ -55,7 +61,53 @@ tuya:
   country_code: 1
   platform: smart_life
 
-  
+influxdb:
+  host: !secret ipaddress
+  database: homeassistant
+  username: !secret influxdb_username
+  password: !secret influxdb_password
+  tags:
+    instance: prod
+    source: ha
+
+zone:
+  - name: Steve Work Bothell
+    latitude: 47.774100
+    longitude: -122.181513
+    radius: 250
+  - name: Steve Work Bellevue
+    latitude: 47.613516
+    longitude: -122.194069
+    radius: 100
+
+#######################################################
+#####     TESTING AREA BELOW                      #####
+#######################################################
+
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.com
+      exclude_devices:
+       - "Steve's Alexa Apps"
+       - "Steve's 2nd Fire"
+       - "Steve's Fire"
+
+notify:
+  - platform: alexa_media
+    name: alexa_media
+
+switch:
+  - platform: mqtt
+    name: "Hubby Office Overhead"
+    state_topic: "stat/officeOverhead/POWER"
+    command_topic: "cmnd/officeOverhead/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+
+## These are only examples at this point, our alarm is not connected to HA yet
 ios:
   push:
     categories:
@@ -77,46 +129,3 @@ ios:
             authenticationRequired: no
             destructive: yes
             behavior: 'default' 
-
-influxdb:
-  host: !secret ipaddress
-  database: homeassistant
-  username: !secret influxdb_username
-  password: !secret influxdb_password
-  tags:
-    instance: prod
-    source: ha
-
-sensor: !include_dir_merge_list sensors
-
-zone:
-  - name: Steve Work Bothell
-    latitude: 47.774100
-    longitude: -122.181513
-    radius: 250
-  - name: Steve Work Bellevue
-    latitude: 47.613516
-    longitude: -122.194069
-    radius: 100
-
-#######################################################
-#####     TESTING AREA BELOW                      #####
-#######################################################
-
-weather:
-- platform: darksky
-  api_key: !secret darksky_key
-
-alexa_media:
-  accounts:
-    - email: !secret amazon_user
-      password: !secret amazon_password
-      url: amazon.com
-      exclude_devices:
-       - "Steve's Alexa Apps"
-       - "Steve's 2nd Fire"
-       - "Steve's Fire"
-
-notify:
-  - platform: alexa_media
-    name: alexa_media

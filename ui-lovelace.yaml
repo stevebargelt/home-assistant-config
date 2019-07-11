@@ -20,9 +20,10 @@ views:
     cards:
       - entities:
           - input_boolean.steve_home
-          - input_boolean.house_guests
           - input_boolean.maggie_home
           - input_boolean.zoe_home
+          - input_boolean.wfh
+          - input_boolean.house_guests
           - input_boolean.home_occupied
           - input_boolean.exterior_alarm
         title: Input boolean
@@ -31,8 +32,15 @@ views:
           - switch.maggie_lamp
           - switch.steve_lamp          
           - switch.office_lamp
+          - switch.hubby_office_overhead
         title: Switch
         type: entities
+      - entities:
+          - media_player.living_space
+          - media_player.maggie_s_dot
+          - media_player.hubby_office
+        title: Alexa
+        type: entities        
       # - entities:
       #     - updater.updater
       #   title: Updater
@@ -49,6 +57,9 @@ views:
           - name: Media Server Plex
             type: weblink
             url: !secret weblink_plex_server
+          - name: ZWave to MQTT
+            type: weblink
+            url: !secret weblink_zwave2mqtt
         title: Weblink
         type: entities
     path: default_view
@@ -58,6 +69,8 @@ views:
       - entities:
           - entity: device_tracker.steves_x
           - entity: switch.office_lamp
+          - entity: switch.hubby_office_overhead
+          - entity: binary_sensor.office_motion_sensor
         show_header_toggle: true
         title: Hubby Office
         type: entities
@@ -74,12 +87,13 @@ views:
           - home
         type: entity-filter
       - type: history-graph
-        hours_to_show: 168
+        title: 'XBox Time'
+        hours_to_show: 80
         refresh_interval: 3600
         entities:
-          - entity: sensor.deity
+          - entity: sensor.deity_xbox
             name: Deity
-          - entity: sensor.pinkwolf300
+          - entity: sensor.zoe_xbox
             name: Zoe
       - type: weather-forecast
         entity: weather.dark_sky

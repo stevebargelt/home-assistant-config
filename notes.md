@@ -28,3 +28,17 @@ docker run -it --network=host \
              amazon-dash run --ignore-perms --root-allowed \
                              --config /config/amazon-dash.yml
 
+
+## OpenZwave MQTT
+
+docker run --rm -it -p 8091:8091 --device=/dev/ttyUSB0 -v $(pwd)/store:/usr/src/app/store robertslando/zwave2mqtt:latest
+
+## ESPHome
+
+Since no love sharing USB Devices on a Mac... we must download the bin fine and:
+
+```shell
+
+esptool.py --port /dev/tty.SLAB_USBtoUART write_flash 0x0 ~/Downloads/testdummy.bin
+
+```

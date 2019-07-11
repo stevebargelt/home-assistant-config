@@ -49,6 +49,20 @@ services:
       - "1880:1880"
     volumes: 
       - /Users/steve/ha/node-red-data:/data
+
+  esphome:
+    image: esphome/esphome
+    restart: always
+    environment:
+      - ESPHOME_DASHBOARD_USE_PING="true"
+    ports:
+      - "8266:8266"
+      - "3232:3232"
+      - "6052:6052"
+      - "5353:5353"
+    volumes:
+      - /Users/steve/ha/esphome:/config
+
   # dasher:
   #   image: nekmo/amazon-dash:latest  
   #   volumes:

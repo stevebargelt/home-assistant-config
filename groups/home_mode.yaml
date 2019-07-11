@@ -1,6 +1,0 @@
-Home Modes:
-  control: hidden
-  entities:
-    - input_boolean.alert_mode
-    - input_boolean.speech_notifications
-    - input_boolean.last_message
