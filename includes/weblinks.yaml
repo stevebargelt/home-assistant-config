@@ -5,6 +5,8 @@ entities:
   url: !secret weblink_grafana
 - name: ESP Home
   url: !secret weblink_esphome
+- name: Node Red
+  url: !secret weblink_nodered
 - name: Media Server Plex
   url: !secret weblink_plex_server
 - name: ZWave to MQTT

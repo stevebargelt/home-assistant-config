@@ -51,6 +51,12 @@ views:
           - name: UniFi Controller / Router
             type: weblink
             url: !secret weblink_router
+          - name: Node Red
+            type: weblink
+            url: !secret weblink_nodered
+          - name: ESP Home
+            type: weblink
+            url: !secret weblink_esphome         
           - name: Grafana
             type: weblink
             url: !secret weblink_grafana
