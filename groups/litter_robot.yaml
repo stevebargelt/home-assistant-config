@@ -1,0 +1,7 @@
+Golden Throne:
+  control: hidden
+  entities:
+    - sensor.litter_robot_golden_shitter_status
+    - sensor.litter_robot_golden_shitter_waste
+    - switch.litter_robot_cycle
+    - switch.litter_robot_nightlight

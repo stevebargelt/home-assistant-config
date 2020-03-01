@@ -2,16 +2,20 @@ version: '3.7'
 services:
   mqtt-int:
     image: eclipse-mosquitto
-    restart: always
+    restart: unless-stopped
+    environment:
+      - TZ=America/Los_Angeles
     ports: 
       - "1883:1883"
     volumes:
         - /Users/steve/ha/home-assistant-config/mosquitto-int.conf:/mosquitto/config/mosquitto.conf
-        - /Users/steve/ha/mosquitto/data
-        - /Users/steve/ha/mosquitto/log
+        - /Users/steve/ha/mosquitto/data:/mosquitto/data
+        - /Users/steve/ha/mosquitto/log:/mosquitto/log
   influxdb:
     image: influxdb
-    restart: always
+    restart: unless-stopped
+    environment:
+      - TZ=America/Los_Angeles
     ports:
       - "8086:8086"
     volumes:
@@ -19,7 +23,9 @@ services:
       - /Users/steve/ha/influxdb:/data
   grafana:
     image: grafana/grafana
-    restart: always 
+    restart: unless-stopped
+    environment:
+      - TZ=America/Los_Angeles
     depends_on:
       - influxdb
     ports:
@@ -29,7 +35,7 @@ services:
   
   home-assistant:
     image: homeassistant/home-assistant
-    restart: always
+    restart: unless-stopped
     depends_on:
       - mqtt-int
       - influxdb
@@ -37,14 +43,17 @@ services:
       - TZ=America/Los_Angeles
     ports:
       - "8123:8123"
-      - "8300:8300"
     volumes:
       - /Users/steve/ha/letsencrypt:/etc/letsencrypt
       - /Users/steve/ha/home-assistant-config:/config
 
   node-red:
     image: nodered/node-red-docker
-    restart: always
+    restart: unless-stopped
+    depends_on:
+      - home-assistant    
+    environment:
+      - TZ=America/Los_Angeles
     ports:
       - "1880:1880"
     volumes: 
@@ -52,9 +61,12 @@ services:
 
   esphome:
     image: esphome/esphome
-    restart: always
+    restart: unless-stopped
+    depends_on:
+      - home-assistant    
     environment:
       - ESPHOME_DASHBOARD_USE_PING="true"
+      - TZ=America/Los_Angeles
     ports:
       - "8266:8266"
       - "3232:3232"

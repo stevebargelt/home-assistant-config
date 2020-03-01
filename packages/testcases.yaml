@@ -1,0 +1,49 @@
+input_boolean:
+  test_alert:
+    name: Test Alert
+    initial: false
+    icon: mdi:alert-outline
+  test_critical_notification:
+    name: Test Critical Notification
+    initial: false
+    icon: mdi:account-badge-alert
+  test_camera_notification:
+    name: Test Camera Notification
+    initial: false
+    icon: mdi:home-alert
+
+
+automation:
+  - alias: Catch iOS action notification
+    initial_state: 'true'
+    trigger:
+    - event_type: ios.action_fired
+      platform: event
+    action:
+    - data_template:
+        message: 'Received action named {{ trigger.event.data.actionName }} from device {{ trigger.event.data.sourceDeviceID }} triggered from {{ trigger.event.data.triggerSource }}'
+      service: notify.mobile_app_steves_x
+
+
+# iOS Critical Notification Test
+  - alias: 'Test: iOS Critical Notification'
+    initial_state: 'true'
+    trigger:
+    - platform: state
+      entity_id: input_boolean.test_critical_notification
+      to: 'on'
+    action:
+    - service: notify.mobile_app_steves_x
+      data:
+        message: "ALARM! Trigger: {{ states.input_text.alarm_trigger.state }}"
+        data:
+          push:
+            category: alarm
+            sound:
+              critical: 1
+              name: Telegraph.caf
+              volume: 1.0 # 0.0 to 1.0
+          action_data:
+            entity_id: light.test
+            my_custom_data: foo_bar
+      

@@ -6,6 +6,10 @@ maggie_home:
   name: Maggie Home
   initial: off
   icon: mdi:cellphone-iphone
+parker_home:
+  name: Parker Home
+  initial: off
+  icon: mdi:cellphone-iphone
 zoe_home:
   name: Zoe Home
   initial: off

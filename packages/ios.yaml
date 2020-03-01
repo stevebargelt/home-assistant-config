@@ -1,0 +1,40 @@
+# Enables Apple iOS Support
+ios:
+  push:
+    categories:
+      - name: Front Doorbell
+        identifier: 'FRONT_DOORBELL'
+        actions:
+          - identifier: 'ACK_FRONT_DOORBELL'
+            title: 'Acknowledge Front Doorbell'
+            activationMode: 'background'
+            authenticationRequired: true
+            destructive: true
+            behavior: 'default'
+          - identifier: 'TAKE_PIC'
+            title: 'Take Pic'
+            activationMode: 'background'
+            authenticationRequired: false
+            destructive: false
+            behavior: 'default'
+      - name: Monitoring
+        identifier: 'MONITORING'
+        actions:
+          - identifier: 'ACK_MONITORING'
+            title: 'Acknowledge Alert'
+            activationMode: 'background'
+            authenticationRequired: false
+            destructive: false
+          - identifier: 'RESET_MONITORING'
+            title: 'Reset Alert'
+            activationMode: 'background'
+            authenticationRequired: false
+            destructive: true
+
+script:
+  request_location_update_steve:
+    alias: Request Location Update Steve
+    sequence:
+    - data:
+        message: request_location_update
+      service: notify.mobile_app_steves_x

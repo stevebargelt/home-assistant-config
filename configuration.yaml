@@ -3,63 +3,43 @@ homeassistant:
     - type: homeassistant
     - type: legacy_api_password
       api_password: !secret api_password
+  # This one has to be here
+  customize: !include_dir_merge_named customizations/      
+  packages: !include_dir_named packages
 
-#default_config:
 automation:
 config:
-frontend:
 history:
 logbook:
 map:
-mobile_app:
 person:
 script:
 sun:
 system_health:
-# updater:
 zeroconf:
+cloud:
+
+# Loads themes
+frontend: !include frontend.yaml
 
 lovelace:
   mode: yaml
 
-emulated_hue:
-
-wemo:
-  static:
-    - 10.0.0.196
-
 http:
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
+  ip_ban_enabled: False
   login_attempts_threshold: 3
   base_url: !secret externaldomain
-
-mqtt:
-  broker: !secret ipaddress
 
 weather:
 - platform: darksky
   api_key: !secret darksky_key
 
 device_tracker:
-  - platform: unifi
-    host: !secret router_ipaddress
-    username: !secret unifi_controller_username
-    password: !secret unifi_controller_password
-    verify_ssl: false
-    ssid_filter:
-      - 'NSA Surveillance #22'
-
-input_boolean: !include_dir_merge_named inputbools
-weblink: !include includes/weblinks.yaml
-group: !include_dir_merge_named groups
-sensor: !include_dir_merge_list sensors
-
-tuya:
-  username: !secret tuya_username
-  password: !secret tuya_password
-  country_code: 1
-  platform: smart_life
+  - platform: tile
+    username: !secret tile_username
+    password: !secret tile_password
 
 influxdb:
   host: !secret ipaddress
@@ -80,23 +60,51 @@ zone:
     longitude: -122.194069
     radius: 100
 
+# INCLUDES
+input_boolean: !include_dir_merge_named inputbools
+weblink: !include includes/weblinks.yaml
+group: !include_dir_merge_named groups
+sensor: !include_dir_merge_list sensors
+binary_sensor: !include_dir_merge_list binary_sensors
+# switch: !include_dir_merge_list switches
+# automation: !include_dir_merge_list automations
+
+
+
 #######################################################
 #####     TESTING AREA BELOW                      #####
 #######################################################
 
-alexa_media:
-  accounts:
-    - email: !secret amazon_user
-      password: !secret amazon_password
-      url: amazon.com
-      exclude_devices:
-       - "Steve's Alexa Apps"
-       - "Steve's 2nd Fire"
-       - "Steve's Fire"
+hacs:
+  token: !secret hacs_token
 
-notify:
-  - platform: alexa_media
-    name: alexa_media
+withings:
+  client_id: !secret withings_client_id 
+  client_secret: !secret withings_client_secret
+  profiles:
+    - Steve
+
+# Custom component: https://github.com/fwestenberg/reolink
+camera:
+  - platform: reolink_dev
+    host: !secret CameraFront_IP
+    username: !secret CameraFront_Username
+    password: !secret CameraFront_Password
+    name: Front Door
+    stream: main
+    protocol: rtmp
+    channel: 0
+    scan_interval: 5
+
+#Enable stream
+stream:
+
+# custom component https://github.com/joshjcarrier/homeassistant-litter-robot 
+# Litter Robot
+litter_robot:
+  username: !secret LitterRobotEmail 
+  password: !secret LitterRobotPassword
+
 
 switch:
   - platform: mqtt
@@ -106,26 +114,139 @@ switch:
     payload_on: "ON"
     payload_off: "OFF"
     retain: true
+  - platform: mqtt
+    name: "Steve Bedside Lamp"
+    state_topic: "stat/steveBedsideLamp/POWER"
+    command_topic: "cmnd/steveBedsideLamp/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - platform: mqtt
+    name: "Hubby Office Torch Lamp"
+    state_topic: "stat/hubbyOfficeTorchLamp/POWER"
+    command_topic: "cmnd/hubbyOfficeTorchLamp/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - platform: template
+    switches:
+      litter_robot_nightlight:
+        friendly_name: "Golden Shitter Night Light"
+        value_template: "{{ is_state('sensor.litter_robot_golden_shitter_nightlight', 'On') }}"
+        icon_template: "mdi:lightbulb"
+        turn_on:
+          service: litter_robot.nightlight_turn_on
+        turn_off:
+          service: litter_robot.nightlight_turn_off
+      litter_robot_cycle:
+        friendly_name: "Golden Shitter Cycle"
+        value_template: "{{ is_state('sensor.litter_robot_golden_shitter_status', 'Clean Cycling') }}"
+        icon_template: "mdi:refresh"
+        turn_on:
+          service: litter_robot.cycle
+        turn_off:
+      camera_front_door_email:
+        value_template: "{{ is_state_attr('camera.front_door', 'email_enabled', true) }}"
+        turn_on:
+          service: camera.enable_email
+          data:
+            entity_id: camera.front_door
+        turn_off:
+          service: camera.disable_email
+          data:
+            entity_id: camera.front_door
+        icon_template: >-
+          {% if is_state_attr('camera.front_door', 'email_enabled', true) %}
+            mdi:email
+          {% else %}
+            mdi:email-outline
+          {% endif %}
+      camera_front_door_ftp:
+        value_template: "{{ is_state_attr('camera.front_door', 'ftp_enabled', true) }}"
+        turn_on:
+          service: camera.enable_ftp
+          data:
+            entity_id: camera.front_door
+        turn_off:
+          service: camera.disable_ftp
+          data:
+            entity_id: camera.front_door
+        icon_template: >-
+          {% if is_state_attr('camera.front_door', 'ftp_enabled', true) %}
+            mdi:filmstrip
+          {% else %}
+            mdi:filmstrip-off
+          {% endif %}
+      camera_front_door_ir_lights:
+        value_template: "{{ is_state_attr('camera.front_door', 'ir_lights_enabled', true) }}"
+        turn_on:
+          service: camera.enable_ir_lights
+          data:
+            entity_id: camera.front_door
+        turn_off:
+          service: camera.disable_ir_lights
+          data:
+            entity_id: camera.front_door
+        icon_template: >-
+          {% if is_state_attr('camera.front_door', 'ir_lights_enabled', true) %}
+            mdi:flashlight
+          {% else %}
+            mdi:flashlight-off
+          {% endif %}
+    
+# #Enable Cameras
+# camera:
+#   - platform: generic
+#     name: front_door
+#     still_image_url: !secret CameraFrontStill_URL
+#     stream_source: !secret CameraFront_Source 
 
-## These are only examples at this point, our alarm is not connected to HA yet
-ios:
-  push:
-    categories:
-      - name: Alarm
-        identifier: 'alarm'
-        actions:
-          - identifier: 'SILENCE_ALARM'
-            title: 'Silence Alarm'
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: yes
-            behavior: 'default'
-      - name: Siren
-        identifier: 'siren'
-        actions:
-          - identifier: 'ACTIVATE_SIRENS'
-            title: 'Activate Sirens'
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: yes
-            behavior: 'default' 
+
+
+
+
+
+
+# ios:
+#   push:
+#     categories:
+#       - name: Alarm
+#         identifier: 'alarm'
+#         actions:
+#           - identifier: 'SILENCE_ALARM'
+#             title: 'Silence Alarm'
+#             activationMode: 'background'
+#             authenticationRequired: no
+#             destructive: yes
+#             behavior: 'default'
+#       - name: Siren
+#         identifier: 'siren'
+#         actions:
+#           - identifier: 'ACTIVATE_SIRENS'
+#             title: 'Activate Sirens'
+#             activationMode: 'background'
+#             authenticationRequired: no
+#             destructive: yes
+#             behavior: 'default' 
+#       - name: CallMom
+#         identifier: 'callmom'
+#         actions:
+#           - identifier: 'ALREADY_CALLED'
+#             title: 'Already Called'
+#             activationMode: 'background'
+#             authenticationRequired: no
+#             destructive: yes
+#             behavior: 'default'
+#           - identifier: 'SNOOZE'
+#             title: 'Snooze 30 Minutes'
+#             activationMode: 'background'
+#             authenticationRequired: no
+#             destructive: yes
+#             behavior: 'default'
+#           - identifier: 'REMIND_HOME'
+#             title: 'Remind Me at Home'
+#             activationMode: 'background'
+#             authenticationRequired: no
+#             destructive: yes
+#             behavior: 'default'       
+

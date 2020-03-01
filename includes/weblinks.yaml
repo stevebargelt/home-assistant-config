@@ -9,5 +9,11 @@ entities:
   url: !secret weblink_nodered
 - name: Media Server Plex
   url: !secret weblink_plex_server
-- name: ZWave to MQTT
-  url: !secret weblink_zwave2mqtt
+- name: Hubby Office Torch Lamp - Tasmota
+  url: !secret weblink_hubby_office_torch_lamp
+- name: Hubby Office Overhead Lamp - Tasmota
+  url: !secret weblink_hubby_office_overhead_lamp
+- name: Steve Bedside Lamp - Tasmota
+  url: !secret weblink_steve_bedside_lamp
+
+

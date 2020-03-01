@@ -1,5 +1,25 @@
-Alexa Media Players:
+alexatts_wholehouse:
+  name: Alexa Group Whole House
   entities:
     - media_player.living_space
+    - media_player.craft_room
     - media_player.maggie_s_dot
-    - media_player.hubby_office
+    - media_player.parker_s_room_echo_dot
+    - media_player.hubby_office_echo_dot
+    - media_player.master_bathroom
+    
+alexatts_upstairs:
+  name: Alexa Group Upstairs
+  entities:
+    - media_player.maggie_s_dot
+    - media_player.parker_s_room_echo_dot
+    - media_player.hubby_office_echo_dot
+    - media_player.master_bathroom
+  
+alexatts_downstairs:
+  name: Alexa Group Downstairs
+  entities:
+    - media_player.maggie_s_dot
+    - media_player.parker_s_room_echo_dot
+    - media_player.hubby_office_echo_dot
+    

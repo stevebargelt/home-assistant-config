@@ -1,0 +1,4 @@
+switch.hubby_office_torch_lamp:
+  icon: mdi:floor-lamp-variant
+switch.hubby_office_overhead:
+  icon: mdi:ceiling-light

@@ -1,0 +1,21 @@
+- platform: mqtt
+  name: "Hubby Office Overhead"
+  state_topic: "stat/officeOverhead/POWER"
+  command_topic: "cmnd/officeOverhead/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
+  name: "Steve Bedside Lamp"
+  state_topic: "stat/steveBedsideLamp/POWER"
+  command_topic: "cmnd/steveBedsideLamp/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
+  name: "Hubby Office Torch Lamp"
+  state_topic: "stat/hubbyOfficeTorchLamp/POWER"
+  command_topic: "cmnd/hubbyOfficeTorchLamp/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

@@ -1,24 +1,4 @@
-# #triggers
-# good_night:
-#   name: Good Night
-#   initial: off
-
-# good_morning:
-#   name: Good Morning
-#   initial: off
-
-# lights_status:
-#   name: Lights Status
-#   initial: off
-
-# play_night_sounds:
-#   name: Play Night Sounds
-#   initial: off
-
-# responsibilities:
-#   name: responsibilities
-#   initial: off
-
-# home_stats:
-#   name: Home Stats
-#   initial: off
+call_mom_reminder:
+  name: Call Mom Reminder
+  initial: off
+  icon: mdi:cellphone-iphone

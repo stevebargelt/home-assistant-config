@@ -1,21 +1,20 @@
 title: Home
+resources:
+  - url: /local/plugins/lovelace-fold-entity-row/fold-entity-row.js?v=1
+    type: module
 views:
-  - badges:
+  - title: Home 
+    path: default_view
+    badges:
       - person.maggie
       - person.steve
       - person.zoe
-      - device_tracker.xboxone
-      - device_tracker.steves_mbp
-      - device_tracker.steves_x
-      - device_tracker.steves_mbp_2
-      - device_tracker.zoeroomappletv
-      - device_tracker.margaretsiphone
-      - device_tracker.pse_iphone_x
-      - device_tracker.steves_mac_pro
+      - device_tracker.steves_11_pro_max
       - device_tracker.steves_pse_mbp
+      - device_tracker.tile_bce880b97d7c4949
+      - binary_sensor.bayesian_presence_steve
+      - device_tracker.margaretsiphone
       - device_tracker.zoes_iphone
-      - sensor.steves_x_battery_level
-      - sensor.steves_x_battery_state
       - sun.sun
     cards:
       - entities:
@@ -26,67 +25,81 @@ views:
           - input_boolean.house_guests
           - input_boolean.home_occupied
           - input_boolean.exterior_alarm
+        show_header_toggle: false
         title: Input boolean
         type: entities
       - entities:
-          - switch.maggie_lamp
-          - switch.steve_lamp          
-          - switch.office_lamp
+          - switch.steve_bedside_lamp         
+          - switch.hubby_office_torch_lamp
           - switch.hubby_office_overhead
+        show_header_toggle: false
         title: Switch
         type: entities
+      - camera_image: camera.front_door
+        camera_view: live
+        entities: 
+          - entity: binary_sensor.front_doorbell
+        title: Front Door Camera
+        type: picture-glance
+      - entities: 
+          - sensor.litter_robot_golden_shitter_status
+          - sensor.litter_robot_golden_shitter_waste
+          - switch.litter_robot_cycle
+          - switch.litter_robot_nightlight
+        show_header_toggle: false
+        title: Litter Robot - Golden Throne
+        type: entities   
       - entities:
           - media_player.living_space
           - media_player.maggie_s_dot
-          - media_player.hubby_office
+          - media_player.parker_s_room_echo_dot
+          - media_player.hubby_office_echo_dot
+          - media_player.craft_room_echo_dot
+          - media_player.everywhere
+          - media_player.upstairs
+          - media_player.downstairs
+        show_header_toggle: false
         title: Alexa
         type: entities        
-      # - entities:
-      #     - updater.updater
-      #   title: Updater
-      #   state_filter:
-      #     - home
-      #   type: entity-filter
-      - entities:
-          - name: UniFi Controller / Router
-            type: weblink
-            url: !secret weblink_router
-          - name: Node Red
-            type: weblink
-            url: !secret weblink_nodered
-          - name: ESP Home
-            type: weblink
-            url: !secret weblink_esphome         
-          - name: Grafana
-            type: weblink
-            url: !secret weblink_grafana
-          - name: Media Server Plex
-            type: weblink
-            url: !secret weblink_plex_server
-          - name: ZWave to MQTT
-            type: weblink
-            url: !secret weblink_zwave2mqtt
-        title: Weblink
-        type: entities
-    path: default_view
-    title: Home
-  - badges: []
+  - title: Hubby
+    badges: []
+    panel: false
     cards:
       - entities:
-          - entity: device_tracker.steves_x
-          - entity: switch.office_lamp
+          - entity: switch.hubby_office_torch_lamp
           - entity: switch.hubby_office_overhead
           - entity: binary_sensor.office_motion_sensor
+          - entity: binary_sensor.motion_front_door
         show_header_toggle: true
         title: Hubby Office
         type: entities
+      - entities:
+          - entity: input_boolean.steve_home
+            name: Input Boolean Steve Home
+          - entity: person.steve
+            name: Person.Steve (Don't use this for anything important)
+          - entity: device_tracker.steves_11_pro_max
+            name: Steve's X iOS App (iPhone 11 Pro Max)
+          - entity: device_tracker.steves_pse_mbp_2
+            name: PSE MBP (2 for some reason)
+          - entity: device_tracker.tile_bce880b97d7c4949
+            name: Steve Tile (Keys)
+          - entity: binary_sensor.bayesian_presence_steve
+        show_header_toggle: false
+        title: Steve Home Troubleshooting
+        type: entities
+      - entities:
+          - entity: binary_sensor.front_doorbell
+        show_header_toggle: false
+        title: Front of House
+        type: entities      
       - card:
           show_name: false
           show_state: false
           title: Who Is Home?
           type: glance
         entities:
-          - device_tracker.steves_x
+          - device_tracker.steves_11_pro_max
           - device_tracker.margaretsiphone
           - device_tracker.zoes_iphone
         state_filter:
@@ -104,7 +117,82 @@ views:
       - type: weather-forecast
         entity: weather.dark_sky
       - type: media-control
-        entity: media_player.hubby_office
+        entity: media_player.hubby_office_echo_dot
+      - type: picture-glance
+        entities:
+          - entity: binary_sensor.front_doorbell
+          - binary_sensor.motion_front_door
+          - switch.camera_front_door_ir_lights
+          - switch.camera_front_door_email
+          - switch.camera_front_door_ftp
+        camera_image: camera.front_door
+  - title: The Lab 
+    icon: 'mdi:test-tube'
+    badges: []
+    cards:
+      - entities:
+          - entity: input_boolean.test_alert
+          - entity: input_boolean.test_critical_notification
+          - entity: automation.test_ios_camera_attachment_notification
+          - entity: automation.test_ios_critical_notification
+        show_header_toggle: false
+        title: Testcases
+        type: entities
+      - entities:
+          - name: UniFi Controller / Router
+            type: weblink
+            url: !secret weblink_router
+          - name: Node Red
+            type: weblink
+            url: !secret weblink_nodered
+          - name: ESP Home
+            type: weblink
+            url: !secret weblink_esphome         
+          - name: Grafana
+            type: weblink
+            url: !secret weblink_grafana
+        show_header_toggle: false
+        title: Weblink
+        type: entities
+      - entities:
+          - name: Hubby Office Torch Lamp | Tasmota
+            type: weblink
+            url: !secret weblink_hubby_office_torch_lamp
+          - name: Hubby Office Overhead Lamp | Tasmota
+            type: weblink
+            url: !secret weblink_hubby_office_overhead_lamp
+          - name: Steve Bedside Lamp | Tasmota
+            type: weblink
+            url: !secret weblink_steve_bedside_lamp         
+        show_header_toggle: false
+        title: Weblink
+        type: entities   
+  - title: TOUCH  
+    icon: 'mdi:fingerprint'
     panel: false
-    title: Test
+    badges: []
+    cards:
+    - type: horizontal-stack
+      cards: 
+        - type: entity-button
+          entity: switch.steve_bedside_lamp         
+          tap_action: 
+            action: toggle
+        - type: entity-button
+          entity: switch.hubby_office_torch_lamp
+          tap_action: 
+            action: toggle
+        - type: entity-button
+          entity: switch.hubby_office_overhead         
+          tap_action: 
+            action: toggle
+    - type: iframe
+      url: https://embed.windy.com/embed2.html?lat=47.033&lon=-122.618&zoom=7&level=surface&overlay=gust&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=47.380&detailLon=-122.844&metricWind=default&metricTemp=default&radarRange=-1
+      aspect_ratio: 75%
+
+     
+
+
+
+ 
 

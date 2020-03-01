@@ -63,12 +63,12 @@ else
 fi
 
 
-header "Pulling Latest RPi Home Assistant" 6
+header "Pulling Latest Home Assistant" 6
 
-if $DOCKER pull homeassistant/raspberrypi-homeassistant; then
-  header "Pulled RPi Home Assistant" 2 
+if $DOCKER pull homeassistant/home-assistant; then
+  header "Pulled Home Assistant" 2 
 else
-  header "Failed to pull RPi Home Assistant" 1
+  header "Failed to pull Home Assistant" 1
   exit 1
 fi
 
